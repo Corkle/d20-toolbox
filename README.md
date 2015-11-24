@@ -1,5 +1,5 @@
 ### Folder Structure
-
+```
 app/
 ----- routes/
 ---------- index.routes.js
@@ -69,3 +69,4 @@ bower.json
 gulpfile.js
 package.json
 server.js
+```
