@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+{% include '../components/top-navbar/top-navbar.html' %}
+<md-content layout-margin layout-padding>
+	<md-toolbar layout-padding>
+		<h1>Hello</h1>
+	</md-toolbar>
+
+	<p>{{ text }}</p>
+	
+	<md-icon md-svg-src="src/assets/img/d20.svg" layout-margin class="s48"></md-icon>
+</md-content>
+{% endblock %}
