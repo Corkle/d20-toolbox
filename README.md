@@ -7,7 +7,6 @@ app/
 ---------- base.html
 ---------- header.html
 ---------- index.html
------ application.js
 config/
 ----- env/
 ---------- development.js
@@ -65,6 +64,12 @@ modules/
 ------------------------- libs.js
 --------------- index.html
 public/
+----- assets/
+---------- css/
+---------- libs/
+---------- js/
+--------------- ng-scripts.js
+----- application.js
 bower.json
 gulpfile.js
 package.json
