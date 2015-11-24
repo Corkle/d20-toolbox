@@ -1,0 +1,17 @@
+{
+  "name": "d20-toolbox",
+  "description": "",
+  "main": "server.js",
+  "license": "ISC",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
