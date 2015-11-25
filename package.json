@@ -14,7 +14,9 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "browser-sync": "^2.10.0",
     "gulp": "^3.9.0",
+    "gulp-load-plugins": "^1.1.0",
     "gulp-nodemon": "^2.0.4"
   }
 }
