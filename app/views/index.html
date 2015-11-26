@@ -1,13 +1,56 @@
-{% extends 'base.html' %} {% block content %}
-{% include '../components/top-navbar/top-navbar.html' %}
-<md-content layout-margin layout-padding>
-	<md-toolbar layout-padding>
-		<h1>Hello</h1>
-	</md-toolbar>
+{% extends 'base.html' %} {% block content %}  
 
-	<h3>INDEX</h3>
-	<p>{{ text }}</p>
-	
-	<md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
-</md-content>
+    <div class="cards" layout layout-wrap layout-align="space-around center">
+
+      <md-card flex="50">
+        <md-card-content>
+          <span class="md-headline">In-card mixed actions</span>
+          <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+            Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex="30">
+        <md-card-content>
+          <span class="md-headline">In-card mixed actions</span>
+          <md-card-actions layout="row" layout-align="start center">
+            <md-card-icon-actions>
+              <md-button class="md-icon-button" aria-label="Favorite">
+                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+              </md-button>
+              <md-button class="md-icon-button" aria-label="Share">
+                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+              </md-button>
+            </md-card-icon-actions>
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+          </md-card-actions>
+
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+            Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex="40">
+        <md-toolbar>
+            <h1>Hello</h1>
+          </md-toolbar>
+        <md-card-content ng-controller="NavCtrl as hello">          
+          <md-content>
+            <md-button ng-click="hello.openLeftMenu()">
+							Open Left Menu
+						</md-button>
+            <p>
+              <%= text %>
+            </p>
+          </md-content>
+        </md-card-content>
+      </md-card>
+    </div>
+
 {% endblock %}

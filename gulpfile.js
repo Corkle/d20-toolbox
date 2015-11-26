@@ -3,50 +3,39 @@ var gulp = require('gulp'),
 		pattern: ['gulp-*', 'gulp.*', 'del'],
 		replaceString: /\bgulp[\-.]/
 	}),
+	spawn = require('child_process').spawn,
 	browser = require('browser-sync'),
 	paths = require('./gulp/gulp-config.server'),
-	devPort = require('./config/env/development').port;
+	port = require('./config/env/development').port;
+	
+var node;
 
 /*********************************************
 * TASK: gulp
 * Starts server for dev environment
 *********************************************/
-gulp.task('default', ['browser-sync']);
+gulp.task('default', ['browser:start', 'watch:app']);
+
+/*********************************************
+* TASK: server:start
+* Launches the server
+*********************************************/
+gulp.task('server:start', function() {
+	if (node) node.kill();
+	node = spawn('node', [paths.server], {stdio: 'inherit'});
+});
 
 /*********************************************
 * TASK: browser-sync
 * Launches browser, reloads browser when reload function is called
 *********************************************/
-gulp.task('browser-sync', ['nodemon'], function() {
+gulp.task('browser:start', ['server:start'], function() {
 	browser({
-		proxy: 'localhost:' + devPort,
+		proxy: 'localhost:' + port,
 		port: 5000,
 		notify: false
 	})
 })
-
-/*********************************************
-* TASK: nodemon
-* Starts node server and sets watches, restarts server on change
-*********************************************/
-gulp.task('nodemon', function() {
-	var started = false;
-	
-	return plugins.nodemon({
-		script: paths.server,
-		ext: 'js html css',
-		watch: [paths.jsFiles, paths.htmlFiles, paths.cssFiles],
-		ignore: [paths.libs],
-		env: { 'NODE_ENV' : 'development' }
-	})
-		.on('start', ['watch-app'])
-		.on('change', ['watch-app'])
-		.on('restart', function() {
-			setTimeout(function() {
-				browser.reload({stream: false})
-			}, 500)
-		});
-});
 
 /*********************************************
 * TASK: bundle-scripts
@@ -62,15 +51,29 @@ gulp.task('join:partials', ['clean:scripts'], function() {
 * TASK: clean:scripts
 * Clean existing ng-scripts file
 *********************************************/
-gulp.task('clean:scripts', function () {
-
-	return plugins.del([
+gulp.task('clean:scripts', function (cb) {
+	plugins.del([
 		paths.ngScript.path + paths.ngScript.file,
 	])
+	cb();
 });
 
-gulp.task('watch-app', function() {
+/*********************************************
+* TASK: watch:app
+* Watches for changes in files and sets tasks.
+*********************************************/
+gulp.task('watch:app', function() {
 	gulp.watch(paths.jsPartials, ['join:partials']);
+	gulp.watch(paths.ngScript.path+paths.ngScript.file, ['browser:reload']);
+	gulp.watch(paths.jsServerFiles, ['browser:reload']);
+	gulp.watch(paths.htmlFiles, ['browser:reload']);
+	gulp.watch(paths.cssFiles, ['browser:reload']);
 });
 
-// https://gist.github.com/webdesserts/5632955
+/*********************************************
+* TASK: browser:reload
+* Starts new server instance and reloads browser.
+*********************************************/
+gulp.task('browser:reload', ['server:start'],function() {
+	browser.reload();
+})

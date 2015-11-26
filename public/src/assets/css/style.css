@@ -1,3 +1,15 @@
+html, body {
+  background-color: #EEE;
+}
+
+#site-wrapper {
+  height: 100%;
+}
+
+#content-box {
+  padding: 25px;
+}
+
 .s24 {
   width: 24px;
   height: 24px;
@@ -13,4 +25,13 @@
   
  .nav-brand-icon {
    margin-right: 20px;
+ }
+ 
+ .md-card .md-card-title {
+   display: flex;
+   padding: 24px 16px 16px;
+ }
+ 
+ .sidenav-mini {
+   width: 64px
  }

@@ -1,5 +1,7 @@
 var express = require('express'),
 	swig = require('swig');
+	
+swig.setDefaults({ varControls: ['<%=', '%>']});
 
 module.exports = function() {
 	var app = express();
