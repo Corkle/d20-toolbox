@@ -73,25 +73,25 @@ box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 
   min-width: 218px;
 }
  
- nav-menu,
-nav-menu ul {
+ .nav-menu-bar,
+.nav-menu-bar ul {
   list-style: none;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
 }
-nav-menu li {
+.nav-menu-bar li {
   margin: 0;
 }
-nav-menu > li:nth-child(1) {
+.nav-menu-bar > li:nth-child(1) {
   border-top: none;
 }
  
- nav-menu > li {
+ .nav-menu-bar > li {
   border-bottom: 1px solid #267ED5;
 }
 
-nav-menu .md-button {
+.nav-menu-bar .md-button {
   border-radius: 0;
   /*color: white;*/
   cursor: pointer;
@@ -107,38 +107,37 @@ nav-menu .md-button {
   white-space: normal;
   width: 100%;
 }
-nav-menu .md-button:hover,
-nav-menu .md-button:focus {
+.nav-menu-bar .md-button:hover,
+.nav-menu-bar .md-button:focus {
   background: #267ED5 !important;
 }
-nav-menu .md-button md-icon {
+.nav-menu-bar .md-button md-icon {
   color: white;
 }
 
-nav-menu md-select {
-
+.nav-menu-bar md-select {
   margin: 0;
   width: 100%;
 }
 
-nav-menu md-select md-select-label {
+.nav-menu-bar md-select md-select-label {
   justify-content: flex-end;
   padding-top: 10px;
 }
 
-nav-menu md-select md-select-label span {
+.nav-menu-bar md-select md-select-label span {
   margin-right: auto;
   padding-left: 13px;
 }
 
-nav-menu md-select .md-select-icon {
+.nav-menu-bar md-select .md-select-icon {
   margin-right: 28px;
 }
 
-nav-menu button.md-button::-moz-focus-inner {
+.nav-menu-bar button.md-button::-moz-focus-inner {
   padding: 0;
 }
-nav-menu .md-button.active {
+.nav-menu-bar .md-button.active {
   background: #267ED5;
 }
 .menu-heading {
@@ -162,13 +161,25 @@ nav-menu .md-button.active {
   transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
   transition-property: height;
 }
-nav-menu .menu-toggle-list a.md-button {
+.nav-menu-bar nav-menu ul a.md-button {
   display: block;
   padding: 0 16px 0 32px;
+}
+
+.nav-menu-bar menu-link a.md-button {
   text-transform: none;
   text-rendering: optimizeLegibility;
   font-weight: 500;
 }
+
+.nav-menu-bar nav-menu ul ul li > a.md-button {
+  padding-left: 48px;
+}
+
+.nav-menu-bar nav-menu ul ul ul li > a.md-button {
+  padding-left: 64px;
+}
+
 
 .md-button-toggle .md-toggle-icon {
   display: block;

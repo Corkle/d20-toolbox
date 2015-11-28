@@ -1,11 +1,10 @@
-
 <md-sidenav class="md-sidenav-left site-sidenav" md-is-locked-open="true">
 	<md-toolbar class="md-whiteframe-z1"></md-toolbar>
-	<md-content id="site-nav-menu">		
-		<nav-menu layout="column">
+	<md-content id="site-nav-menu">
+		<nav-menu class="nav-menu-bar" layout="column">
 			<h2 class="menu-heading">Heading</h2>
 			<menu-link>Item1</menu-link>
-			<nav-menu toggle-menu title="Toggle Menu">
+			<nav-menu toggle-menu title="Menu">
 				<menu-link>Item1</menu-link>
 				<menu-link>Item2</menu-link>
 				<menu-link>Item3</menu-link>
@@ -16,10 +15,20 @@
 			<menu-link layout="column">
 				ItemB
 			</menu-link>
+			<nav-menu title="<nav-menu>">
+				<menu-link>&lt;menu-link&gt;</menu-link>
+				<menu-link>&lt;menu-link&gt;</menu-link>
+				<nav-menu title="<nav-menu>" toggle-menu>
+					<menu-link>&lt;menu-link&gt;</menu-link>
+					<nav-menu title="Double Nested Menu">
+						<menu-link>Item>>></menu-link>
+					</nav-menu>
+				</nav-menu>
+			</nav-menu>
 			<nav-menu toggle-menu title="Toggle Me">
 				<menu-link>
 					Item
-				</menu-link>	
+				</menu-link>
 			</nav-menu>
 		</nav-menu>
 	</md-content>

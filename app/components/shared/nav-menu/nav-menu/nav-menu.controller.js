@@ -4,6 +4,9 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 		$scope.canToggle = true;
 	}
 	var menuToggles = [];
+	
+	this.ctrlName = $scope.title;
+	this.menuToggles = menuToggles;
 
 	this.openToggleList = function (menuToggle) {
 		for (var i = 0; i < menuToggles.length; i++) {
@@ -14,5 +17,10 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 
 	this.addToMenuToggles = function (menuToggle) {
 		menuToggles.push(menuToggle);
+		// DEBUG('addToMenuToggle:', menuToggles[0]);
 	}
+	
+	$scope.$watch('menuToggles', function(newVal, oldVal) {
+		// DEBUG('Scope Watch:', $scope.title);
+	}, true)
 });

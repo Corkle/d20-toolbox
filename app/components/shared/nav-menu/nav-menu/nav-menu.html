@@ -1,4 +1,5 @@
-<md-button ng-show="title" ng-class="{'md-button-toggle': canToggle}">
+<li ng-show="title">
+<a class="md-button" ng-class="{'md-button-toggle': canToggle}" ng-click="toggle()">
 	<div layout="row" flex>
 		<span ng-bind="title"></span>
 		<span flex></span>
@@ -6,7 +7,8 @@
 				<md-icon md-svg-src="src/assets/img/icons/d20.svg"></md-icon>
 			</span>
 	</div>
-</md-button>
+</a>
+</li>
 <ul ng-class="{'menu-toggle-list': canToggle}">
 	<div class="" ng-transclude></div>
 </ul>

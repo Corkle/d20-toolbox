@@ -7,3 +7,9 @@ app.config(['$locationProvider', function($locationProvider) {
 		.html5Mode(true)
 		.hashPrefix('!');
 }]);
+
+function DEBUG(msg, obj) {
+    var dt = new Date();
+    var timestamp = dt.toLocaleTimeString();
+    console.log(timestamp, msg, obj);
+}
