@@ -11,7 +11,7 @@ function fileExists(file, cb) {
 }
 
 exports.render = function (req, res) {
-	var jsAssets = ['src/application.js'];
+	var jsAssets = [];
 	var jsScript = 'src/assets/js/ng-scripts.server.js';
 
 	fileExists('public/' + jsScript, function (exists) {

@@ -4,12 +4,11 @@
 
 <body>
 	<div id="site-wrapper" layout>
-		{% include '../components/side-navbar-mini/side-navbar-mini.html' %}
 		{% include '../components/side-navbar/side-navbar.html' %}
 		
-		<div id="content-wrapper">
+		<div id="content-wrapper" layout="column">
 			{% include '../components/top-navbar/top-navbar.html' %}
-			<div id="content-box" layout="column">
+			<div id="content-box">
 				{% block content %} {% endblock %}
 			</div>
 		</div>

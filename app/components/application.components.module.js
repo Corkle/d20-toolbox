@@ -1,0 +1,1 @@
+var appComponents = angular.module('toolboxApp.components', ['navMenu']);

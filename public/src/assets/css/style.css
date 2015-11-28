@@ -1,13 +1,16 @@
 html, body {
   background-color: #EEE;
+  height: 100%;
+  overflow: hidden;
 }
 
 #site-wrapper {
-  height: 100%;
+  height: 100%;  
 }
 
 #content-box {
   padding: 25px;
+  overflow: auto;
 }
 
 .s24 {
@@ -32,6 +35,154 @@ html, body {
    padding: 24px 16px 16px;
  }
  
- .sidenav-mini {
-   width: 64px
+ #content-wrapper {
+box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 0, 0, 0.14), 2px -2px 1px -1px rgba(0, 0, 0, 0.12)
  }
+ 
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+
+
+.site-sidenav {
+  background: #106CC8;
+}
+.site-sidenav md-content {
+  background: transparent;
+}
+
+
+
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+  width:     272px;
+  min-width: 272px;
+  max-width: 272px;
+}
+.site-sidenav > * {
+  min-width: 218px;
+}
+ 
+ nav-menu,
+nav-menu ul {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+nav-menu li {
+  margin: 0;
+}
+nav-menu > li:nth-child(1) {
+  border-top: none;
+}
+ 
+ nav-menu > li {
+  border-bottom: 1px solid #267ED5;
+}
+
+nav-menu .md-button {
+  border-radius: 0;
+  /*color: white;*/
+  cursor: pointer;
+  display: block;
+  align-items: inherit;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 0px 16px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  width: 100%;
+}
+nav-menu .md-button:hover,
+nav-menu .md-button:focus {
+  background: #267ED5 !important;
+}
+nav-menu .md-button md-icon {
+  color: white;
+}
+
+nav-menu md-select {
+
+  margin: 0;
+  width: 100%;
+}
+
+nav-menu md-select md-select-label {
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+nav-menu md-select md-select-label span {
+  margin-right: auto;
+  padding-left: 13px;
+}
+
+nav-menu md-select .md-select-icon {
+  margin-right: 28px;
+}
+
+nav-menu button.md-button::-moz-focus-inner {
+  padding: 0;
+}
+nav-menu .md-button.active {
+  background: #267ED5;
+}
+.menu-heading {
+  display: block;
+  line-height: 32px;
+  margin: 0;
+  padding: 8px 16px 0;
+  text-align: left;
+  /*width: 100%;*/
+  color: rgba(255, 255, 255, 0.54)
+}
+
+.menu-toggle-list {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: height;
+  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: height;
+  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: height;
+}
+nav-menu .menu-toggle-list a.md-button {
+  display: block;
+  padding: 0 16px 0 32px;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  font-weight: 500;
+}
+
+.md-button-toggle .md-toggle-icon {
+  display: block;
+  margin-left: auto;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
+
+#site-side-menu {
+  overflow-y: auto;
+}

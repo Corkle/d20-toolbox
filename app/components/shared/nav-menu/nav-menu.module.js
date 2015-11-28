@@ -1,0 +1,1 @@
+var navMenuComponent = angular.module('navMenu', []);

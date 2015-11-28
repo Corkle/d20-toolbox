@@ -1,3 +1,26 @@
-  <md-sidenav md-component-id="left" class="md-sidenav-left" layout-fill flex layout="column">
-    Left Nav!
-  </md-sidenav>
+
+<md-sidenav class="md-sidenav-left site-sidenav" md-is-locked-open="true">
+	<md-toolbar class="md-whiteframe-z1"></md-toolbar>
+	<md-content id="site-nav-menu">		
+		<nav-menu layout="column">
+			<h2 class="menu-heading">Heading</h2>
+			<menu-link>Item1</menu-link>
+			<nav-menu toggle-menu title="Toggle Menu">
+				<menu-link>Item1</menu-link>
+				<menu-link>Item2</menu-link>
+				<menu-link>Item3</menu-link>
+			</nav-menu>
+			<menu-link>
+				ItemA
+			</menu-link>
+			<menu-link layout="column">
+				ItemB
+			</menu-link>
+			<nav-menu toggle-menu title="Toggle Me">
+				<menu-link>
+					Item
+				</menu-link>	
+			</nav-menu>
+		</nav-menu>
+	</md-content>
+</md-sidenav>

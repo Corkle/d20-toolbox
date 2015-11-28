@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')({
-		pattern: ['gulp-*', 'gulp.*', 'del'],
+		pattern: ['gulp-*', 'gulp.*', 'del', 'add-stream'],
 		replaceString: /\bgulp[\-.]/
 	}),
 	spawn = require('child_process').spawn,
@@ -38,11 +38,12 @@ gulp.task('browser:start', ['server:start'], function() {
 })
 
 /*********************************************
-* TASK: bundle-scripts
+* TASK: join:partials
 * Concatenate all AngularJS files, HTML partials to $templateCache
 *********************************************/
 gulp.task('join:partials', ['clean:scripts'], function() {
-	return gulp.src(paths.jsPartials)
+	return gulp.src(paths.jsClientFiles)
+		.pipe(plugins.addStream.obj(partialsToTemplates(paths.htmlPartials)))
 		.pipe(plugins.concat(paths.ngScript.file))
 		.pipe(gulp.dest(paths.ngScript.path));
 });
@@ -62,11 +63,12 @@ gulp.task('clean:scripts', function (cb) {
 * TASK: watch:app
 * Watches for changes in files and sets tasks.
 *********************************************/
-gulp.task('watch:app', function() {
-	gulp.watch(paths.jsPartials, ['join:partials']);
+gulp.task('watch:app', ['join:partials'], function() {
+	gulp.watch(paths.jsClientFiles, ['join:partials']);
+	gulp.watch(paths.htmlPartials, ['join:partials']);
 	gulp.watch(paths.ngScript.path+paths.ngScript.file, ['browser:reload']);
 	gulp.watch(paths.jsServerFiles, ['browser:reload']);
-	gulp.watch(paths.htmlFiles, ['browser:reload']);
+	gulp.watch(paths.htmlViews, ['browser:reload']);
 	gulp.watch(paths.cssFiles, ['browser:reload']);
 });
 
@@ -77,3 +79,12 @@ gulp.task('watch:app', function() {
 gulp.task('browser:reload', ['server:start'],function() {
 	browser.reload();
 })
+
+/*********************************************
+* Return stream of 'templates' module. 'templates' loads HTML partials to $templateCache
+*********************************************/
+function partialsToTemplates(htmlPartials) {
+	return gulp.src(htmlPartials)
+		.pipe(plugins.htmlmin({ collapseWhitespace: true, removeComments: true }))
+		.pipe(plugins.angularTemplatecache({ standalone: true }));
+}

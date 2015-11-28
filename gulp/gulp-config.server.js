@@ -1,11 +1,10 @@
 module.exports = {
 	server: 'server.js',
-	app: 'public/src/application.js',
-	htmlFiles: ['app/**/*.html'],
+	htmlViews: ['app/views/**/*.html', 'app/components/**/*.html', '!app/components/shared/**/*'],
 	cssFiles: ['public/src/assets/css/*.css'],
-	jsServerFiles: ['public/src/application.js', 'app/**/*.js', '!app/components/**/*.js', 'config/**/*.js'],
-	jsPartials: ['app/components/**/*.js'],
-	htmlPartials: ['app/components/**/*.html'],
+	jsServerFiles: ['app/**/*.js', '!app/components/**/*.js', 'config/**/*.js'],
+	jsClientFiles: ['app/application.js', 'app/components/**/*.js'],
+	htmlPartials: ['app/components/shared/**/*.html'],
 	ngScript: {
 		path: 'public/src/assets/js/',
 		file: 'ng-scripts.server.js'

@@ -1,0 +1,12 @@
+<md-button ng-show="title" ng-class="{'md-button-toggle': canToggle}">
+	<div layout="row" flex>
+		<span ng-bind="title"></span>
+		<span flex></span>
+		<span ng-show="canToggle">
+				<md-icon md-svg-src="src/assets/img/icons/d20.svg"></md-icon>
+			</span>
+	</div>
+</md-button>
+<ul ng-class="{'menu-toggle-list': canToggle}">
+	<div class="" ng-transclude></div>
+</ul>

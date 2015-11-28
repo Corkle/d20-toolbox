@@ -1,5 +1,8 @@
-angular.module('toolboxApp').controller('MyController', function($scope, $mdSidenav) {
-  $scope.openLeftMenu = function() {
-    $mdSidenav('left').toggle();
+appComponents.controller('SidenavCtrl', function() {
+  var originEv;
+  this.openMenu = function($mdOpenMenu, ev) {
+    originEv = ev;
+    $mdOpenMenu(ev);
+    
   };
 });
