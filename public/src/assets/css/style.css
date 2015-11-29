@@ -182,7 +182,7 @@ box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 
 
 
 .md-button-toggle .md-toggle-icon {
-  display: block;
+  /*display: block;*/
   margin-left: auto;
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);

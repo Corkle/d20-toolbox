@@ -37,7 +37,6 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 	var menuToggles = [];
 	
 	this.ctrlName = $scope.title;
-	this.menuToggles = menuToggles;
 
 	this.openToggleList = function (menuToggle) {
 		for (var i = 0; i < menuToggles.length; i++) {
@@ -58,15 +57,21 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 navMenuComponent.directive('navMenu', function () {
 	return {
 		restrict: 'EA',
-		require: '^navMenu',
 		transclude: true,
 		scope: {
 			title: '@'
 		},
 		controller: 'NavMenuCtrl',
 		templateUrl: 'nav-menu/nav-menu/nav-menu.html',
-		link: function (scope, elem, attrs, parentCtrl) {
+		link: function (scope, elem, attrs) {
 			var navElem = elem[0];
+			var parentCtrl = elem.parent().controller();
+			
+			scope.isOpen = false;
+			
+			scope.openList = function() {
+				scope.isOpen = !scope.isOpen;
+			}
 			
 			function hasClass(element, className) {
 				var foundClass = false;
@@ -80,11 +85,13 @@ navMenuComponent.directive('navMenu', function () {
 			}
 			
 			if (!hasClass(navElem, 'nav-menu-bar')) {
-				parentCtrl.addToMenuToggles(scope);
+				// parentCtrl.addToMenuToggles(scope);
+			} else {
+				scope.isOpen = true;
 			}
 			
-			// DEBUG('scope.$parent:', scope.$parent.$parent.title);
-			console.log(scope.title + ' is child of ' + scope.$parent.$parent.title);
+			DEBUG('scope.$parent:', elem.parent());
+			// console.log(scope.title + ' is child of ' + scope.$parent.$parent.title);
 			// DEBUG('parentCtrl:', parentCtrl.ctrlName);
 				
 		}
@@ -103,5 +110,5 @@ appComponents.directive('menuLink', function() {
 		}
 	};
 });
-angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"toggle()\"><div layout=\"row\" flex><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"src/assets/img/icons/d20.svg\"></md-icon></span></div></a></li><ul ng-class=\"{\'menu-toggle-list\': canToggle}\"><div class=\"\" ng-transclude></div></ul>");
+angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"openList()\"><div layout=\"row\" flex><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"src/assets/img/icons/d20.svg\" class=\"md-toggle-icon\" ng-class=\"{\'toggled\': isOpen}\"></md-icon></span></div></a></li><ul ng-show=\"isOpen || !canToggle\" ng-class=\"{\'menu-toggle-list\': canToggle}\"><div class=\"\" ng-transclude></div></ul>");
 $templateCache.put("nav-menu/nav-menu/menu-link/menu-link.html","<li><a class=\"md-button md-ink-ripple\" ng-transclude></a></li>");}]);

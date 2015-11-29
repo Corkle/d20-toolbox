@@ -6,7 +6,6 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 	var menuToggles = [];
 	
 	this.ctrlName = $scope.title;
-	this.menuToggles = menuToggles;
 
 	this.openToggleList = function (menuToggle) {
 		for (var i = 0; i < menuToggles.length; i++) {
