@@ -5,21 +5,26 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 	}
 	var menuToggles = [];
 	
-	this.ctrlName = $scope.title;
-
-	this.openToggleList = function (menuToggle) {
-		for (var i = 0; i < menuToggles.length; i++) {
-			menuToggle.isOpen = false;
-		}
-		menuToggle.isOpen = true;
-	};
+	this.menuToggles = function() {
+		return menuToggles;
+	}
 
 	this.addToMenuToggles = function (menuToggle) {
 		menuToggles.push(menuToggle);
-		// DEBUG('addToMenuToggle:', menuToggles[0]);
 	}
-	
-	$scope.$watch('menuToggles', function(newVal, oldVal) {
-		// DEBUG('Scope Watch:', $scope.title);
-	}, true)
+
+	this.ctrlName = $scope.title || '_BASE';
+
+	this.openToggleList = function (menuToggle) {
+		$scope.closeAllLists();
+		menuToggle.isOpen = true;
+	};
+
+	$scope.closeAllLists = function () {
+		if (menuToggles.length > 0) {
+			for (var i = 0; i < menuToggles.length; i++) {
+				menuToggles[i].isOpen = false;
+			}
+		}
+	}
 });
