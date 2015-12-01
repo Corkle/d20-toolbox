@@ -3,11 +3,12 @@
 {% include 'includes/head.html' %}
 
 <body>
-	<div id="site-wrapper" layout>
+	<div id="site-wrapper">
+		<!--<md-sidenav id="site-sidenav" md-is-locked-open="true"><div>Hello</div></md-sidenav>-->
 		{% include '../components/side-navbar/side-navbar.html' %}
-		
-		<div id="content-wrapper" layout="column">
-			{% include '../components/top-navbar/top-navbar.html' %}
+		<div id="content-wrapper">					
+		{% include '../components/top-navbar/top-navbar.html' %}		
+			
 			<div id="content-box">
 				{% block content %} {% endblock %}
 			</div>

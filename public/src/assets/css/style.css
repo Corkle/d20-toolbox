@@ -1,62 +1,68 @@
 html, body {
   background-color: #EEE;
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 #site-wrapper {
-  height: 100%;  
+  position: relative; 
+  height: 100%;
 }
 
+#site-sidenav {
+  position: absolute!important;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+#content-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  /*box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 0, 0, 0.14), 2px -2px 1px -1px rgba(0, 0, 0, 0.12)*/
+}
+
+@media (min-width: 992px) {
+  #content-wrapper {
+      margin-left: 272px;
+  }
+}
+ 
 #content-box {
+  height: 100%;
   padding: 25px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.s24 {
-  width: 24px;
-  height: 24px;
-  }
-.s36 {
-  width: 36px;
-  height: 36px;
-  }
-.s48 {
-  width: 48px;
-  height: 48px;
-  }
-  
- .nav-brand-icon {
-   margin-right: 20px;
- }
- 
- .md-card .md-card-title {
-   display: flex;
-   padding: 24px 16px 16px;
- }
- 
- #content-wrapper {
-box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 0, 0, 0.14), 2px -2px 1px -1px rgba(0, 0, 0, 0.12)
- }
 
-
-.site-sidenav {
+#site-sidenav {
   background: #106CC8;
 }
-.site-sidenav md-content {
+#site-sidenav md-content {
   background: transparent;
 }
 
-
-
-.site-sidenav,
-.site-sidenav.md-locked-open-add-active,
-.site-sidenav.md-locked-open {
+#site-sidenav,
+#site-sidenav.md-locked-open-add-active,
+#site-sidenav.md-locked-open {
   width:     272px;
   min-width: 272px;
   max-width: 272px;
 }
-.site-sidenav > * {
+#site-sidenav > * {
   min-width: 218px;
 }
  
@@ -134,7 +140,6 @@ box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 
   margin: 0;
   padding: 8px 16px 0;
   text-align: left;
-  /*width: 100%;*/
   color: rgba(255, 255, 255, 0.54);
 }
 
@@ -211,6 +216,40 @@ box-shadow: inset 3px -1px 3px 0px rgba(0, 0, 0, 0.2), 1px -1px 1px 0px rgba(0, 
   -webkit-transform: rotate(0deg);
 }
 
-#site-side-menu {
-  overflow-y: auto;
-}
+.nav-brand-icon {
+   margin-right: 20px;
+ }
+ 
+ .md-card .md-card-title {
+   display: flex;
+   padding: 24px 16px 16px;
+ }
+ 
+ .s24 {
+  width: 24px;
+  height: 24px;
+  }
+  .s36 {
+  width: 36px;
+  height: 36px;
+  }
+  .s48 {
+  width: 48px;
+  height: 48px;
+  }
+    
+  .scrollable {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scrollable.hover {
+    overflow-y: hidden!important;
+  }
+  .scrollable.hover>* {
+    margin-top: -1px;
+  }
+  .scrollable.hover:hover {
+    overflow: visible!important;
+    overflow-y: auto!important;
+  }
