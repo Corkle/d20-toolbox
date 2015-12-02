@@ -18,9 +18,9 @@ exports.render = function (req, res) {
 		if (exists) {
 			jsAssets.push(jsScript);
 		}
-
+		
 		res.render('index', {
-			text: "Text sent to index",
+			sidenavFolded: true,
 			jsFiles: jsAssets
 		})
 	});

@@ -252,7 +252,7 @@ html, body {
   }
   
   @media (min-width: 992px) {
-    #site-sidenav.folded {
+    #sidenav-wrapper.folded #site-sidenav{
       width: 64px;
     }
     
@@ -260,7 +260,11 @@ html, body {
       margin-left: 64px;
     }
     
-    #site-sidenav.folded:hover {
+    #sidenav-wrapper:not(.folded) ~ #content-wrapper {
+      margin-left: 272px;
+    }
+    
+    #sidenav-wrapper.folded #site-sidenav:hover {
       width: 272px;
     }
     
@@ -296,6 +300,25 @@ html, body {
       margin-right: 15px; 
     }
     
+    .folded .nav-brand-icon .md-icon-button {
+      margin: 0 8px;
+    }
+    
+    .folded .nav-brand-icon {
+      margin-right: 0;
+    }
+    
+    .folded:hover .nav-brand-icon {
+      margin-right: 20px;
+    }
+    
+    .folded .md-toolbar-tools {
+      padding: 0;
+    }
+    
+    .folded:hover .md-toolbar-tools {
+      padding: 0 16px;
+    }
 
   }
   

@@ -1,5 +1,5 @@
 var appName = 'toolboxApp';
-var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons']);
+var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons', 'appServices']);
 
 app.config(['$locationProvider', function($locationProvider) {
 
@@ -8,9 +8,9 @@ app.config(['$locationProvider', function($locationProvider) {
 		.hashPrefix('!');
 }]);
 
-// app.controller('appCtrl', function(svgIcons) {
-// 	this.svgIcons = svgIcons;	
-// });
+app.controller('AppCtrl',['pageConfig', function(pageConfig) {
+	this.sidenavFolded = pageConfig.sidenavFolded.get();
+}]);
 
 function DEBUG(msg, obj) {
     var dt = new Date();
@@ -41,6 +41,20 @@ angular.module('appSvgIcons', [])
 		}
 	})
 var navMenuComponent = angular.module('navMenu', ['appSvgIcons']);
+var appServices = angular.module('appServices', []);
+
+appServices.service('pageConfig', function() {
+	var sideNavFolded = false;
+	
+	return {
+		sidenavFolded: {
+			get: function() { return sideNavFolded },
+			set: function(newVal) {
+				sideNavFolded = newVal;
+			}
+		}
+	}
+});
 navMenuComponent.controller('NavMenuCtrl', ['$scope', '$element', '$attrs', 'svgIcons', function ($scope, $element, $attrs, svgIcons) {
 	$scope.svgIcons = svgIcons;
 	

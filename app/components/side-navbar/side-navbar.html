@@ -1,13 +1,13 @@
-<div ng-controller="SideNavCtrl as nav">
-	<md-sidenav id="site-sidenav" class="md-sidenav-left folded" md-is-locked-open="$mdMedia('gt-md')">
+<div ng-controller="SideNavCtrl as nav" id="sidenav-wrapper" ng-class="{'folded': {{app.sidenavFolded}}}">
+	<md-sidenav id="site-sidenav" class="md-sidenav-left md-closed" md-is-locked-open="$mdMedia('gt-md')">
 		<md-toolbar class="md-whiteframe-z1">
 			<div class="md-toolbar-tools">
 				<div class="nav-brand-icon">
-					<md-button class="md-icon-button" aria-label="Home" ng-mouseover="nav.openLeftMenu()">
+					<md-button class="md-icon-button" aria-label="Home">
 						<md-icon md-svg-src="{{nav.svgIcons.d20}}" class="s36"></md-icon>
 					</md-button>
 				</div>
-				<h1 layout-margin>D20 Toolbox</h1>
+				<h1 layout-margin class="hidden-folded">D20 Toolbox</h1>
 				<span flex></span>
 			</div>
 		</md-toolbar>
