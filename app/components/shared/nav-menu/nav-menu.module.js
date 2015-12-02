@@ -1,1 +1,1 @@
-var navMenuComponent = angular.module('navMenu', []);
+var navMenuComponent = angular.module('navMenu', ['appSvgIcons']);

@@ -1,58 +1,66 @@
-<md-sidenav id="site-sidenav" class="md-sidenav-left" md-is-locked-open="true">
-	<md-toolbar class="md-whiteframe-z1"><md-button>Hello</md-button></md-toolbar>
-	<div  id="site-nav-menu" class="scrollable hover">
-	<md-content>
-		<nav-menu class="nav-menu-bar" layout="column">
-			<h2 class="menu-heading">Heading</h2>
-			<menu-link>Item1</menu-link>
-			<nav-menu toggle-menu title="Menu">
-				<menu-link>Item1</menu-link>
-				<menu-link>Item2</menu-link>
-				<menu-link>Item3</menu-link>
-				<menu-link>Item1</menu-link>
-				<menu-link>Item2</menu-link>
-				<menu-link>Item3</menu-link>
-				<menu-link>Item1</menu-link>
-				<menu-link>Item2</menu-link>
-				<menu-link>Last Item</menu-link>
-			</nav-menu>
-			<menu-link>
-				ItemA
-			</menu-link>
-			<menu-link layout="column">
-				ItemB
-			</menu-link>
-			<nav-menu title="Nav Menu" toggle-menu>
-				<menu-link>&lt;menu-link&gt;</menu-link>
-				<menu-link>&lt;menu-link&gt;</menu-link>
-				<nav-menu title="Nested Nav Menu" toggle-menu>
-					<menu-link>&lt;menu-link&gt;</menu-link>
-					<nav-menu title="Double Nested Menu" toggle-menu>
-						<menu-link>Item>>></menu-link>
+<div ng-controller="SideNavCtrl as nav">
+	<md-sidenav id="site-sidenav" class="md-sidenav-left folded" md-is-locked-open="$mdMedia('gt-md')">
+		<md-toolbar class="md-whiteframe-z1">
+			<div class="md-toolbar-tools">
+				<div class="nav-brand-icon">
+					<md-button class="md-icon-button" aria-label="Home" ng-mouseover="nav.openLeftMenu()">
+						<md-icon md-svg-src="{{nav.svgIcons.d20}}" class="s36"></md-icon>
+					</md-button>
+				</div>
+				<h1 layout-margin>D20 Toolbox</h1>
+				<span flex></span>
+			</div>
+		</md-toolbar>
+		<div class="scrollable hover">
+			<md-content>
+				<nav-menu id="site-nav-menu" class="nav-menu-bar" layout="column">
+					<div id="side-nav-header" class="hidden-folded">
+						<h2 class="menu-heading">Heading</h2>
+					</div>
+
+					<nav-menu title="Menu" label-icon="{{nav.svgIcons.apps}}" toggle-menu>
+						<menu-link>Item1</menu-link>
+						<menu-link>Item2</menu-link>
+						<menu-link>Item3</menu-link>
+						<menu-link>Item1</menu-link>
+						<menu-link>Item2</menu-link>
+						<menu-link>Item3</menu-link>
+						<menu-link>Item1</menu-link>
+						<menu-link>Item2</menu-link>
+						<menu-link>Last Item</menu-link>
 					</nav-menu>
-				</nav-menu>
-				<nav-menu title="Nested Nav Menu" toggle-menu>
-					<menu-link>&lt;menu-link&gt;</menu-link>
-					<nav-menu title="Double Nested Menu" toggle-menu>
-						<menu-link>Item>>></menu-link>
+					<nav-menu title="Nav Menu" label-icon="{{nav.svgIcons.dotsVertical}}" toggle-menu>
+						<menu-link>&lt;menu-link&gt;</menu-link>
+						<menu-link>&lt;menu-link&gt;</menu-link>
+						<nav-menu title="Nested Nav Menu" toggle-menu>
+							<menu-link>&lt;menu-link&gt;</menu-link>
+							<nav-menu title="Double Nested Menu" toggle-menu>
+								<menu-link>Item>>></menu-link>
+							</nav-menu>
+						</nav-menu>
+						<nav-menu title="Nested Nav Menu" toggle-menu>
+							<menu-link>&lt;menu-link&gt;</menu-link>
+							<nav-menu title="Double Nested Menu" toggle-menu>
+								<menu-link>Item>>></menu-link>
+							</nav-menu>
+						</nav-menu>
 					</nav-menu>
+					<nav-menu title="Toggle Me" label-icon="{{nav.svgIcons.mathCompass}}" toggle-menu>
+						<menu-link>Item</menu-link>
+						<menu-link>Item</menu-link>
+						<menu-link>Item</menu-link>
+						<menu-link>Item</menu-link>
+					</nav-menu>
+					<menu-link label-icon="{{nav.svgIcons.sword}}">ItemA</menu-link>
+					<menu-link label-icon="{{nav.svgIcons.account}}">ItemB</menu-link>
+					<menu-link>Item1</menu-link>
 				</nav-menu>
-			</nav-menu>
-			<nav-menu toggle-menu title="Toggle Me">
-				<menu-link>
-					Item
-				</menu-link>
-				<menu-link>
-					Item
-				</menu-link>
-				<menu-link>
-					Item
-				</menu-link>
-				<menu-link>
-					Item
-				</menu-link>
-			</nav-menu>
+			</md-content>
+		</div>
+		<span flex></span>
+		<nav-menu class="nav-menu-bar">
+			<menu-link label-icon="{{nav.svgIcons.d20}}">Item</menu-link>
 		</nav-menu>
-	</md-content>
-	</div>
-</md-sidenav>
+
+	</md-sidenav>
+</div>

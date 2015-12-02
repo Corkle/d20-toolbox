@@ -32,12 +32,6 @@ html, body {
   left: 0;
   height: 100%;
 }
-
-@media (min-width: 992px) {
-  #content-wrapper {
-      margin-left: 272px;
-  }
-}
  
 #content-box {
   height: 100%;
@@ -58,12 +52,15 @@ html, body {
 #site-sidenav.md-locked-open-add-active,
 #site-sidenav.md-locked-open {
   width:     272px;
-  min-width: 272px;
+  min-width: 0px;
   max-width: 272px;
 }
-#site-sidenav > * {
-  min-width: 218px;
-}
+ 
+ .nav-menu-bar {
+   border-top: 1px solid #267ED5;
+   border-bottom: 1px solid #267ED5;
+   overflow: hidden;
+ }
  
  .nav-menu-bar,
 .nav-menu-bar ul {
@@ -71,18 +68,15 @@ html, body {
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
-  /*margin: 0;*/
+  margin: 0;
 }
 .nav-menu-bar li {
   margin: 0;
 }
-.nav-menu-bar > li:nth-child(1) {
-  border-top: none;
+
+.nav-menu-bar li span {
+    overflow: hidden;
 }
- 
- /*.nav-menu-bar ul {
-  border-bottom: 1px solid #267ED5;
-}*/
 
 .nav-menu-bar .md-button {
   border-radius: 0;
@@ -93,11 +87,12 @@ html, body {
   line-height: 40px;
   margin: 0;
   max-height: 40px;
+  min-width: 0;
   overflow: hidden;
   padding: 0px 16px;
   text-align: left;
   text-decoration: none;
-  white-space: normal;
+  white-space: no-wrap;
   width: 100%;
 }
 .nav-menu-bar .md-button:hover,
@@ -136,7 +131,6 @@ html, body {
 .menu-heading {
   display: block;
   line-height: 32px;
-  margin: 0;
   padding: 8px 16px 0;
   text-align: left;
   color: rgba(255, 255, 255, 0.54);
@@ -215,6 +209,10 @@ html, body {
   -webkit-transform: rotate(0deg);
 }
 
+.nav-menu-label-icon {
+  margin-right: 15px; 
+}
+
 .nav-brand-icon {
    margin-right: 20px;
  }
@@ -251,4 +249,58 @@ html, body {
   .scrollable.hover:hover {
     overflow: visible!important;
     overflow-y: auto!important;
+  }
+  
+  @media (min-width: 992px) {
+    #site-sidenav.folded {
+      width: 64px;
+    }
+    
+    #content-wrapper {
+      margin-left: 64px;
+    }
+    
+    #site-sidenav.folded:hover {
+      width: 272px;
+    }
+    
+    .folded .hidden-folded {
+      display: none;
+    }
+    
+    .folded:hover .hidden-folded {
+      display: block;
+    }
+    
+    .folded .nav-menu-bar .md-button {
+      text-align: center;
+    }
+    
+    .folded:hover .nav-menu-bar .md-button {
+      text-align: left;
+    }
+    
+    .folded .nav-menu-bar li a span {
+      display: none;
+    }
+    
+    .folded:hover .nav-menu-bar li a span {
+      display: inline;
+    }
+    
+    .folded .nav-menu-bar li a .nav-menu-label-icon {
+      margin-right: auto; 
+    }
+    
+    .folded:hover .nav-menu-bar li a .nav-menu-label-icon {
+      margin-right: 15px; 
+    }
+    
+
+  }
+  
+  @media (max-width: 991px) {
+    .menu-heading {
+        margin: 0;
+    }
   }

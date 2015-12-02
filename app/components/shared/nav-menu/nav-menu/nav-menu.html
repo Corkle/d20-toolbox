@@ -1,14 +1,13 @@
 <li ng-show="title" ng-class="{'toggle-list-open': isOpen && canToggle}">
-	<a class="md-button" ng-class="{'md-button-toggle': canToggle}" ng-click="toggleList()">
-		<div layout="row" flex>
-			<span ng-bind="title"></span>
-			<span flex></span>
-			<span ng-show="canToggle">
-			<md-icon md-svg-src="src/assets/img/icons/d20.svg" class="md-toggle-icon" ng-class="{'toggled': isOpen}"></md-icon>
+	<a class="md-button" ng-class="{'md-button-toggle': canToggle}" ng-click="toggleList()" layout="row" flex>
+		<md-icon ng-show="labelIcon" md-svg-src="{{labelIcon}}" class="nav-menu-label-icon"></md-icon>
+		<span ng-bind="title"></span>
+		<span flex></span>
+		<span ng-show="canToggle">
+			<md-icon md-svg-src="{{svgIcons.chevronUp}}" class="md-toggle-icon" ng-class="{'toggled': isOpen}"></md-icon>
 		</span>
-		</div>
 	</a>
 </li>
-<ul ng-class="{'menu-toggle-list': canToggle, 'collapsed': !isOpen}">
+<ul ng-class="{'menu-toggle-list': canToggle, 'collapsed': !isOpen, 'hidden-folded': !isBase}">
 	<div ng-transclude></div>
 </ul>

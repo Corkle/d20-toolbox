@@ -1,3 +1,3 @@
-appComponents.controller('NavCtrl', ['$scope', function($scope) {
-
-}])
+appComponents.controller('TopNavCtrl', ['svgIcons', function(svgIcons) {
+	this.svgIcons = svgIcons;
+}]);

@@ -1,5 +1,5 @@
 var appName = 'toolboxApp';
-var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates']);
+var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons']);
 
 app.config(['$locationProvider', function($locationProvider) {
 
@@ -8,41 +8,51 @@ app.config(['$locationProvider', function($locationProvider) {
 		.hashPrefix('!');
 }]);
 
+// app.controller('appCtrl', function(svgIcons) {
+// 	this.svgIcons = svgIcons;	
+// });
+
 function DEBUG(msg, obj) {
     var dt = new Date();
     var timestamp = dt.toLocaleTimeString();
     console.log(timestamp, msg, obj);
 }
-var appComponents = angular.module('toolboxApp.components', ['navMenu']);
-appComponents.controller('SidenavCtrl', function() {
-  var originEv;
-  this.openMenu = function($mdOpenMenu, ev) {
-    originEv = ev;
-    $mdOpenMenu(ev);
-    
-  };
-});
+var appComponents = angular.module('toolboxApp.components', ['navMenu', 'appSvgIcons']);
+appComponents.controller('SideNavCtrl', ['svgIcons', function(svgIcons) {
+	this.svgIcons = svgIcons;
+}]);
 
-appComponents.controller('NavCtrl', ['$scope', function($scope) {
+appComponents.controller('TopNavCtrl', ['svgIcons', function(svgIcons) {
+	this.svgIcons = svgIcons;
+}]);
+angular.module('appSvgIcons', [])
+	.service('svgIcons', function () {
+		var iconsFolder = 'src/assets/img/icons/';
 
-}])
-var navMenuComponent = angular.module('navMenu', []);
-navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
+		return {
+			account: iconsFolder + 'account.svg',
+			apps: iconsFolder + 'apps.svg',
+			chevronUp: iconsFolder + 'chevron-up.svg',
+			d20: iconsFolder + 'd20.svg',			
+			dotsVertical: iconsFolder + 'dots-vertical.svg',
+			mathCompass: iconsFolder + 'math-compass.svg',			
+			menuUp: iconsFolder + 'menu-up.svg',
+			sword: iconsFolder + 'sword.svg'
+		}
+	})
+var navMenuComponent = angular.module('navMenu', ['appSvgIcons']);
+navMenuComponent.controller('NavMenuCtrl', ['$scope', '$element', '$attrs', 'svgIcons', function ($scope, $element, $attrs, svgIcons) {
+	$scope.svgIcons = svgIcons;
+	
 	$scope.canToggle = false;
 	if ($attrs.hasOwnProperty('toggleMenu')) {
 		$scope.canToggle = true;
 	}
 	var menuToggles = [];
-	
-	this.menuToggles = function() {
-		return menuToggles;
-	}
 
 	this.addToMenuToggles = function (menuToggle) {
 		menuToggles.push(menuToggle);
 	}
-
-	this.ctrlName = $scope.title || '_BASE';
 
 	this.openToggleList = function (menuToggle) {
 		$scope.closeAllLists();
@@ -56,21 +66,22 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 			}
 		}
 	}
-});
+}]);
 navMenuComponent.directive('navMenu', function () {
 	return {
 		require: '?^^navMenu',
 		restrict: 'EA',
 		transclude: true,
 		scope: {
-			title: '@'
+			title: '@',
+			labelIcon: '@'
 		},
 		controller: 'NavMenuCtrl',
 		templateUrl: 'nav-menu/nav-menu/nav-menu.html',
 		link: function (scope, elem, attrs, parentCtrl) {
-			var isBase = !parentCtrl ? true : false;
+			scope.isBase = !parentCtrl ? true : false;
 
-			if (isBase) {
+			if (scope.isBase) {
 				scope.isOpen = true;
 			} else {
 				scope.isOpen = false;
@@ -98,13 +109,11 @@ appComponents.directive('menuLink', function() {
 		require: '^navMenu',
 		restrict: 'E',
 		transclude: true,
-		templateUrl: 'nav-menu/nav-menu/menu-link/menu-link.html',
-				link: function (scope, elem, attrs, parentCtrl) {
-			
-			// console.log(scope.title + ' is child of ' + parentCtrl.ctrlName);
-				
-		}
+		scope: {
+			labelIcon: '@'
+		},
+		templateUrl: 'nav-menu/nav-menu/menu-link/menu-link.html'
 	};
 });
-angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\" ng-class=\"{\'toggle-list-open\': isOpen && canToggle}\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"toggleList()\"><div layout=\"row\" flex><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"src/assets/img/icons/d20.svg\" class=\"md-toggle-icon\" ng-class=\"{\'toggled\': isOpen}\"></md-icon></span></div></a></li><ul ng-class=\"{\'menu-toggle-list\': canToggle, \'collapsed\': !isOpen}\"><div ng-transclude></div></ul>");
-$templateCache.put("nav-menu/nav-menu/menu-link/menu-link.html","<li><a class=\"md-button md-ink-ripple\" ng-transclude></a></li>");}]);
+angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\" ng-class=\"{\'toggle-list-open\': isOpen && canToggle}\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"toggleList()\" layout=\"row\" flex><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"{{svgIcons.chevronUp}}\" class=\"md-toggle-icon\" ng-class=\"{\'toggled\': isOpen}\"></md-icon></span></a></li><ul ng-class=\"{\'menu-toggle-list\': canToggle, \'collapsed\': !isOpen, \'hidden-folded\': !isBase}\"><div ng-transclude></div></ul>");
+$templateCache.put("nav-menu/nav-menu/menu-link/menu-link.html","<li ng-class=\"{\'hidden-folded\': {{!labelIcon}}}\"><a class=\"md-button md-ink-ripple\" layout=\"row\" flex><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-transclude></span> <span flex></span></a></li>");}]);

@@ -1,19 +1,15 @@
-navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
+navMenuComponent.controller('NavMenuCtrl', ['$scope', '$element', '$attrs', 'svgIcons', function ($scope, $element, $attrs, svgIcons) {
+	$scope.svgIcons = svgIcons;
+	
 	$scope.canToggle = false;
 	if ($attrs.hasOwnProperty('toggleMenu')) {
 		$scope.canToggle = true;
 	}
 	var menuToggles = [];
-	
-	this.menuToggles = function() {
-		return menuToggles;
-	}
 
 	this.addToMenuToggles = function (menuToggle) {
 		menuToggles.push(menuToggle);
 	}
-
-	this.ctrlName = $scope.title || '_BASE';
 
 	this.openToggleList = function (menuToggle) {
 		$scope.closeAllLists();
@@ -27,4 +23,4 @@ navMenuComponent.controller('NavMenuCtrl', function ($scope, $element, $attrs) {
 			}
 		}
 	}
-});
+}]);

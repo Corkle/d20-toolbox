@@ -1,8 +1,3 @@
-appComponents.controller('SidenavCtrl', function() {
-  var originEv;
-  this.openMenu = function($mdOpenMenu, ev) {
-    originEv = ev;
-    $mdOpenMenu(ev);
-    
-  };
-});
+appComponents.controller('SideNavCtrl', ['svgIcons', function(svgIcons) {
+	this.svgIcons = svgIcons;
+}]);

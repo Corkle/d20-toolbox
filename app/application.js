@@ -1,5 +1,5 @@
 var appName = 'toolboxApp';
-var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates']);
+var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons']);
 
 app.config(['$locationProvider', function($locationProvider) {
 
@@ -7,6 +7,10 @@ app.config(['$locationProvider', function($locationProvider) {
 		.html5Mode(true)
 		.hashPrefix('!');
 }]);
+
+// app.controller('appCtrl', function(svgIcons) {
+// 	this.svgIcons = svgIcons;	
+// });
 
 function DEBUG(msg, obj) {
     var dt = new Date();
