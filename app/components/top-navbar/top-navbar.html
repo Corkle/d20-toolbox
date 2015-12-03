@@ -1,12 +1,20 @@
-<md-toolbar class="md-whiteframe-z1" ng-controller="TopNavCtrl as nav">
+<md-toolbar id="top-navbar" class="md-whiteframe-z1 top-toolbar" ng-controller="TopNavCtrl as nav">
 	<div class="md-toolbar-tools">
+		<md-button class="nav-item">
+			<md-icon md-svg-icon="{{nav.svgIcons.menu}}"></md-icon>
+		</md-button>
+		<md-button class="nav-item">
+		<div>Dashboard</div>
+		</md-button>
 		<span flex></span>
-		<md-button>Button</md-button>
-		<md-button class="md-icon-button" aria-label="Account">
-			<md-icon md-svg-icon="{{nav.svgIcons.account}}"></md-icon>
-		</md-button>
-		<md-button class="md-icon-button" aria-label="More">
-			<md-icon md-svg-icon="{{nav.svgIcons.dotsVertical}}"></md-icon>
-		</md-button>
+		<div class="nav-tools" layout="row">
+			<md-button>Button</md-button>
+			<md-button class="" aria-label="Account">
+				<md-icon md-svg-icon="{{nav.svgIcons.account}}"></md-icon>
+			</md-button>
+			<md-button class="" aria-label="More">
+				<md-icon md-svg-icon="{{nav.svgIcons.dotsVertical}}"></md-icon>
+			</md-button>
+		</div>
 	</div>
 </md-toolbar>

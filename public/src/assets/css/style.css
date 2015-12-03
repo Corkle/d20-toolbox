@@ -40,6 +40,32 @@ html, body {
   overflow-x: hidden;
 }
 
+.top-toolbar {
+  min-height: 0;
+}
+
+.top-toolbar .md-toolbar-tools {
+  padding: 0;
+}
+
+.top-toolbar .md-toolbar-tools .nav-item,
+.top-toolbar .md-toolbar-tools .nav-tools > .md-button,
+.top-toolbar .md-toolbar-tools > .md-button:first-child,
+.top-toolbar .md-toolbar-tools .nav-item .md-ripple-container {
+  line-height: 64px;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 0;
+}
+
+.top-toolbar .md-button {
+  min-width: 0;
+  min-height: 0;
+  width: auto;
+  height: auto;
+  text-transform: none;
+  font-size: 18px;
+ }    
 
 #site-sidenav {
   background: #106CC8;
@@ -48,9 +74,10 @@ html, body {
   background: transparent;
 }
 
-#site-sidenav,
-#site-sidenav.md-locked-open-add-active,
-#site-sidenav.md-locked-open {
+#site-sidenav
+/*#site-sidenav.md-locked-open-add-active,
+#site-sidenav.md-locked-open*/
+{
   width:     272px;
   min-width: 0px;
   max-width: 272px;
@@ -213,8 +240,13 @@ html, body {
   margin-right: 15px; 
 }
 
-.nav-brand-icon {
-   margin-right: 20px;
+.nav-brand-icon,
+.nav-brand-icon .md-button {
+  width: 64px;
+  padding: 0;
+  line-height: 64px;
+  margin: 0;
+  border-radius: 0;
  }
  
  .md-card .md-card-title {
@@ -251,9 +283,14 @@ html, body {
     overflow-y: auto!important;
   }
   
-  @media (min-width: 992px) {
+  @media (min-width: 960px) {
     #sidenav-wrapper.folded #site-sidenav{
       width: 64px;
+    }
+    
+    .folded #site-sidenav{
+      -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1)
     }
     
     #content-wrapper {
@@ -292,38 +329,43 @@ html, body {
       display: inline;
     }
     
+    .folded .nav-menu-bar li a .nav-menu-row {
+      display: block;
+    }
+    
+    .folded:hover .nav-menu-bar li a .nav-menu-row {
+      display: flex;
+    }
+    
     .folded .nav-menu-bar li a .nav-menu-label-icon {
-      margin-right: auto; 
+      margin-right: auto;
     }
     
     .folded:hover .nav-menu-bar li a .nav-menu-label-icon {
       margin-right: 15px; 
     }
     
-    .folded .nav-brand-icon .md-icon-button {
-      margin: 0 8px;
-    }
-    
-    .folded .nav-brand-icon {
-      margin-right: 0;
-    }
-    
-    .folded:hover .nav-brand-icon {
-      margin-right: 20px;
-    }
-    
-    .folded .md-toolbar-tools {
-      padding: 0;
-    }
-    
-    .folded:hover .md-toolbar-tools {
-      padding: 0 16px;
-    }
+
 
   }
   
-  @media (max-width: 991px) {
+  @media (max-width: 959px) {
     .menu-heading {
         margin: 0;
     }
+    
+    #top-navbar .md-toolbar-tools {
+      height: 56px;
+      min-height: 56px;
+    }
+    
+    #top-navbar .nav-item,
+    #top-navbar .nav-tools > .md-button {
+      line-height: 56px;
+    }
+    
+    #top-navbar .md-toolbar-tools .nav-tools .md-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }    
   }

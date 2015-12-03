@@ -8,7 +8,8 @@ angular.module('appSvgIcons', [])
 			chevronUp: iconsFolder + 'chevron-up.svg',
 			d20: iconsFolder + 'd20.svg',			
 			dotsVertical: iconsFolder + 'dots-vertical.svg',
-			mathCompass: iconsFolder + 'math-compass.svg',			
+			mathCompass: iconsFolder + 'math-compass.svg',
+			menu: iconsFolder + 'menu.svg',	
 			menuUp: iconsFolder + 'menu-up.svg',
 			sword: iconsFolder + 'sword.svg'
 		}

@@ -1,13 +1,17 @@
 <div ng-controller="SideNavCtrl as nav" id="sidenav-wrapper" ng-class="{'folded': {{app.sidenavFolded}}}">
-	<md-sidenav id="site-sidenav" class="md-sidenav-left md-closed" md-is-locked-open="$mdMedia('gt-md')">
-		<md-toolbar class="md-whiteframe-z1">
+	<md-sidenav id="site-sidenav" class="md-sidenav-left" md-component-id="left-nav" md-is-locked-open="$mdMedia('gt-md')">
+		<md-toolbar class="md-whiteframe-z1 top-toolbar">
 			<div class="md-toolbar-tools">
+				
 				<div class="nav-brand-icon">
-					<md-button class="md-icon-button" aria-label="Home">
+					<md-button class="" aria-label="Home">
 						<md-icon md-svg-src="{{nav.svgIcons.d20}}" class="s36"></md-icon>
 					</md-button>
 				</div>
-				<h1 layout-margin class="hidden-folded">D20 Toolbox</h1>
+				
+				<md-button class="nav-item">
+					<h1 layout-margin class="hidden-folded">D20 Toolbox</h1>
+				</md-button>
 				<span flex></span>
 			</div>
 		</md-toolbar>
@@ -53,7 +57,7 @@
 					</nav-menu>
 					<menu-link label-icon="{{nav.svgIcons.sword}}">ItemA</menu-link>
 					<menu-link label-icon="{{nav.svgIcons.account}}">ItemB</menu-link>
-					<menu-link>Item1</menu-link>
+					<menu-link>Check Fold > Full icons</menu-link>
 				</nav-menu>
 			</md-content>
 		</div>

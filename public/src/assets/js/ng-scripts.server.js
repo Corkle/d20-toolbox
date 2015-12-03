@@ -35,7 +35,8 @@ angular.module('appSvgIcons', [])
 			chevronUp: iconsFolder + 'chevron-up.svg',
 			d20: iconsFolder + 'd20.svg',			
 			dotsVertical: iconsFolder + 'dots-vertical.svg',
-			mathCompass: iconsFolder + 'math-compass.svg',			
+			mathCompass: iconsFolder + 'math-compass.svg',
+			menu: iconsFolder + 'menu.svg',	
 			menuUp: iconsFolder + 'menu-up.svg',
 			sword: iconsFolder + 'sword.svg'
 		}
@@ -129,5 +130,5 @@ appComponents.directive('menuLink', function() {
 		templateUrl: 'nav-menu/nav-menu/menu-link/menu-link.html'
 	};
 });
-angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\" ng-class=\"{\'toggle-list-open\': isOpen && canToggle}\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"toggleList()\" layout=\"row\" flex><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"{{svgIcons.chevronUp}}\" class=\"md-toggle-icon\" ng-class=\"{\'toggled\': isOpen}\"></md-icon></span></a></li><ul ng-class=\"{\'menu-toggle-list\': canToggle, \'collapsed\': !isOpen, \'hidden-folded\': !isBase}\"><div ng-transclude></div></ul>");
-$templateCache.put("nav-menu/nav-menu/menu-link/menu-link.html","<li ng-class=\"{\'hidden-folded\': {{!labelIcon}}}\"><a class=\"md-button md-ink-ripple\" layout=\"row\" flex><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-transclude></span> <span flex></span></a></li>");}]);
+angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("nav-menu/nav-menu/nav-menu.html","<li ng-show=\"title\" ng-class=\"{\'toggle-list-open\': isOpen && canToggle}\"><a class=\"md-button\" ng-class=\"{\'md-button-toggle\': canToggle}\" ng-click=\"toggleList()\"><div class=\"nav-menu-row\" layout=\"row\"><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-bind=\"title\"></span> <span flex></span> <span ng-show=\"canToggle\"><md-icon md-svg-src=\"{{svgIcons.chevronUp}}\" class=\"md-toggle-icon\" ng-class=\"{\'toggled\': isOpen}\"></md-icon></span></div></a></li><ul ng-class=\"{\'menu-toggle-list\': canToggle, \'collapsed\': !isOpen, \'hidden-folded\': !isBase}\"><div ng-transclude></div></ul>");
+$templateCache.put("nav-menu/nav-menu/menu-link/menu-link.html","<li ng-class=\"{\'hidden-folded\': {{!labelIcon}}}\"><a class=\"md-button md-ink-ripple\"><md-icon ng-show=\"labelIcon\" md-svg-src=\"{{labelIcon}}\" class=\"nav-menu-label-icon\"></md-icon><span ng-transclude></span> <span flex></span></a></li>");}]);
