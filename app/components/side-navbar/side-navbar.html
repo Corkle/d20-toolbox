@@ -1,5 +1,6 @@
 <div ng-controller="SideNavCtrl as nav" id="sidenav-wrapper" ng-class="{'folded': {{app.sidenavFolded}}}">
 	<md-sidenav id="site-sidenav" class="md-sidenav-left" md-component-id="left-nav" md-is-locked-open="$mdMedia('gt-md')">
+		
 		<md-toolbar class="md-whiteframe-z1 top-toolbar">
 			<div class="md-toolbar-tools">
 				
@@ -15,13 +16,16 @@
 				<span flex></span>
 			</div>
 		</md-toolbar>
+		
+		
 		<div class="scrollable hover">
 			<md-content>
 				<nav-menu id="site-nav-menu" class="nav-menu-bar" layout="column">
+					
 					<div id="side-nav-header" class="hidden-folded">
 						<h2 class="menu-heading">Heading</h2>
 					</div>
-
+					
 					<nav-menu title="Menu" label-icon="{{nav.svgIcons.apps}}" toggle-menu>
 						<menu-link>Item1</menu-link>
 						<menu-link>Item2</menu-link>
@@ -55,9 +59,7 @@
 						<menu-link>Item</menu-link>
 						<menu-link>Item</menu-link>
 					</nav-menu>
-					<menu-link label-icon="{{nav.svgIcons.sword}}">ItemA</menu-link>
-					<menu-link label-icon="{{nav.svgIcons.account}}">ItemB</menu-link>
-					<menu-link>Check Fold > Full icons</menu-link>
+					<menu-link label-icon="{{nav.svgIcons.sword}}">ItemA</menu-link>												
 				</nav-menu>
 			</md-content>
 		</div>

@@ -1,7 +1,7 @@
 <li ng-class="{'hidden-folded': {{!labelIcon}}}">
-	<a class="md-button md-ink-ripple">
+	<a class="md-button md-ink-ripple" layout="row">
 		<md-icon ng-show="labelIcon" md-svg-src="{{labelIcon}}" class="nav-menu-label-icon"></md-icon>
-		<span ng-transclude></span>
-		<span flex></span>
+		<span ng-transclude flex></span>
+		<span><md-icon></md-icon></span>
 	</a>
 </li>

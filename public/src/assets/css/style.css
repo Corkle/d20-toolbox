@@ -22,6 +22,8 @@ html, body {
   bottom: 0;
   overflow-x: hidden;
   height: 100%;
+  -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1)
 }
 
 #content-wrapper {
@@ -113,7 +115,7 @@ html, body {
   align-items: inherit;
   line-height: 40px;
   margin: 0;
-  max-height: 40px;
+  /*max-height: 40px;*/
   min-width: 0;
   overflow: hidden;
   padding: 0px 16px;
@@ -158,7 +160,7 @@ html, body {
 .menu-heading {
   display: block;
   line-height: 32px;
-  padding: 8px 16px 0;
+  padding: 0 16px;
   text-align: left;
   color: rgba(255, 255, 255, 0.54);
 }
@@ -224,7 +226,6 @@ html, body {
 }
 
 .md-button-toggle .md-toggle-icon {
-  /*display: block;*/
   margin-left: auto;
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -283,14 +284,19 @@ html, body {
     overflow-y: auto!important;
   }
   
+  .md-button.layout,
+  .md-button.laout-column,
+  .md-button.layout-row {
+    display: flex;
+  }
+  
   @media (min-width: 960px) {
-    #sidenav-wrapper.folded #site-sidenav{
-      width: 64px;
+    .top-toolbar {
+      min-height: 64px;
     }
     
-    .folded #site-sidenav{
-      -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1)
+    #sidenav-wrapper.folded #site-sidenav {
+      width: 64px;
     }
     
     #content-wrapper {
@@ -315,10 +321,14 @@ html, body {
     
     .folded .nav-menu-bar .md-button {
       text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
     
     .folded:hover .nav-menu-bar .md-button {
       text-align: left;
+      padding-top: 0;
+      padding-bottom: 0;
     }
     
     .folded .nav-menu-bar li a span {
@@ -327,14 +337,6 @@ html, body {
     
     .folded:hover .nav-menu-bar li a span {
       display: inline;
-    }
-    
-    .folded .nav-menu-bar li a .nav-menu-row {
-      display: block;
-    }
-    
-    .folded:hover .nav-menu-bar li a .nav-menu-row {
-      display: flex;
     }
     
     .folded .nav-menu-bar li a .nav-menu-label-icon {
@@ -354,13 +356,13 @@ html, body {
         margin: 0;
     }
     
-    #top-navbar .md-toolbar-tools {
+    .top-toolbar .md-toolbar-tools {
       height: 56px;
       min-height: 56px;
     }
     
-    #top-navbar .nav-item,
-    #top-navbar .nav-tools > .md-button {
+    .top-toolbar .nav-item,
+    .top-toolbar .nav-tools > .md-button {
       line-height: 56px;
     }
     
