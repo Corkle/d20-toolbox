@@ -2,6 +2,7 @@ module.exports = {
 	server: 'server.js',
 	htmlViews: ['app/views/**/*.html', 'app/components/**/*.html', '!app/components/shared/**/*'],
 	cssFiles: ['public/src/assets/css/*.css'],
+	sassFiles: ['public/src/assets/sass/*.scss'],
 	jsServerFiles: ['app/**/*.js', '!app/components/**/*.js', 'config/**/*.js'],
 	jsClientFiles: ['app/application.js', 'app/components/**/*.js'],
 	htmlPartials: ['app/components/shared/**/*.html'],
@@ -9,5 +10,6 @@ module.exports = {
 		path: 'public/src/assets/js/',
 		file: 'ng-scripts.server.js'
 	},
-	libs: ['public/src/assets/libs/']
+	libs: ['public/src/assets/libs/'],
+	assetsFolder: 'public/src/assets/'
 };

@@ -38,6 +38,19 @@ gulp.task('browser:start', ['server:start'], function() {
 })
 
 /*********************************************
+* TASK: compass
+* Compile Sass to CSS using Compass
+*********************************************/
+gulp.task('compass', function() {
+	gulp.src(paths.sassFiles)
+		.pipe(plugins.compass({
+			css: paths.assetsFolder + 'css/',
+			sass: paths.assetsFolder + 'sass/',
+			image: paths.assetsFolder + 'img/'
+		}));
+});
+
+/*********************************************
 * TASK: join:partials
 * Concatenate all AngularJS files, HTML partials to $templateCache
 *********************************************/
