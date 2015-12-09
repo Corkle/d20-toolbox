@@ -1,0 +1,41 @@
+.s24 {
+    width: 24px;
+    height: 24px;
+}
+.s36 {
+    width: 36px;
+    height: 36px;
+}
+.s48 {
+    width: 48px;
+    height: 48px;
+}
+
+.scrollable {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollable.hover {
+    overflow-y: hidden!important;
+}
+.scrollable.hover>* {
+    margin-top: -1px;
+}
+.scrollable.hover:hover {
+    overflow: visible!important;
+    overflow-y: auto!important;
+}
+
+.folded .hidden-folded {
+    display: none;
+}
+.folded:hover .hidden-folded {
+    display: block;
+}
+
+.md-button.layout,
+.md-button.layout-column,
+.md-button.layout-row {
+    display: flex;
+}

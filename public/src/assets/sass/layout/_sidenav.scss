@@ -1,0 +1,226 @@
+#site-sidenav {
+  position: absolute!important;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1)
+}
+
+#site-sidenav {
+  background: $nav-color-primary;
+}
+#site-sidenav md-content {
+  background: transparent;
+}
+
+#site-sidenav
+/*#site-sidenav.md-locked-open-add-active,
+#site-sidenav.md-locked-open*/
+{
+  width:     272px;
+  min-width: 0px;
+  max-width: 272px;
+}
+
+.nav-menu-bar {
+   border-top: 1px solid $nav-color-secondary;
+   border-bottom: 1px solid $nav-color-secondary;
+   overflow: hidden;
+ }
+ 
+ .nav-menu-bar,
+.nav-menu-bar ul {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+.nav-menu-bar li {
+  margin: 0;
+}
+
+.nav-menu-bar li span {
+    overflow: hidden;
+}
+
+.nav-menu-bar .md-button {
+  border-radius: 0;
+  color: $nav-font-color;
+  cursor: pointer;
+  display: block;
+  align-items: inherit;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0px 16px;
+  text-align: left;
+  text-decoration: none;
+  white-space: no-wrap;
+  width: 100%;
+}
+.nav-menu-bar .md-button:hover,
+.nav-menu-bar .md-button:focus {
+  background: $nav-color-secondary;
+}
+.nav-menu-bar .md-button md-icon {
+  color: $nav-font-color;
+}
+
+.nav-menu-bar md-select {
+  margin: 0;
+  width: 100%;
+}
+
+.nav-menu-bar md-select md-select-label {
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.nav-menu-bar md-select md-select-label span {
+  margin-right: auto;
+  padding-left: 13px;
+}
+
+.nav-menu-bar md-select .md-select-icon {
+  margin-right: 28px;
+}
+
+.nav-menu-bar button.md-button::-moz-focus-inner {
+  padding: 0;
+}
+.nav-menu-bar .md-button.active {
+  background: $nav-color-secondary;
+}
+
+.menu-heading {
+  display: block;
+  line-height: 32px;
+  padding: 0 16px;
+  text-align: left;
+  color: $nav-heading-color;
+}
+
+.menu-toggle-list {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: max-height;
+  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: max-height;
+  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: max-height;
+  max-height: 1500px;
+}
+
+.toggle-list-open {
+  background: $nav-color-secondary;
+}
+
+.menu-toggle-list li {
+  background: $nav-color-secondary;
+}
+
+.collapsed {
+  max-height: 0px;
+}
+
+.nav-menu-bar nav-menu ul a.md-button {
+  display: block;
+  padding: 0 16px 0 32px;
+}
+
+.nav-menu-bar menu-link a.md-button {
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  font-weight: 500;
+}
+
+.nav-menu-bar nav-menu ul ul li > a.md-button {
+  padding-left: 48px;
+}
+
+.menu-toggle-list .toggle-list-open {
+  background: $nav-color-hue1;
+}
+
+.menu-toggle-list .menu-toggle-list li {
+  background: $nav-color-hue1;
+}
+
+.nav-menu-bar nav-menu ul ul ul li > a.md-button {
+  padding-left: 64px;
+}
+
+.menu-toggle-list .menu-toggle-list .toggle-list-open {
+  background: $nav-color-hue2;
+}
+
+.menu-toggle-list .menu-toggle-list .menu-toggle-list li {
+  background: $nav-color-hue2;
+}
+
+.md-button-toggle .md-toggle-icon {
+  margin-left: auto;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
+
+.nav-menu-label-icon {
+  margin-right: 15px; 
+}
+
+ @media (min-width: $window-medium-max-width) {   
+       #sidenav-wrapper.folded #site-sidenav {
+      width: 64px;
+    }
+    
+    #sidenav-wrapper.folded #site-sidenav:hover {
+      width: 272px;
+    }
+    
+    .folded .nav-menu-bar .md-button {
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    
+    .folded:hover .nav-menu-bar .md-button {
+      text-align: left;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    
+    .folded .nav-menu-bar li a span {
+      display: none;
+    }
+    
+    .folded:hover .nav-menu-bar li a span {
+      display: inline;
+    }
+    
+    .folded .nav-menu-bar li a .nav-menu-label-icon {
+      margin-right: auto;
+    }
+    
+    .folded:hover .nav-menu-bar li a .nav-menu-label-icon {
+      margin-right: 15px; 
+    }
+ }
+ 
+ @media (max-width: $window-medium-max-width) {
+   .menu-heading {
+        margin: 0;
+    }
+ }

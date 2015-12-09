@@ -79,6 +79,7 @@ gulp.task('clean:scripts', function (cb) {
 gulp.task('watch:app', ['join:partials'], function() {
 	gulp.watch(paths.jsClientFiles, ['join:partials']);
 	gulp.watch(paths.htmlPartials, ['join:partials']);
+	gulp.watch(paths.sassFiles, ['compass']);
 	gulp.watch(paths.ngScript.path+paths.ngScript.file, ['browser:reload']);
 	gulp.watch(paths.jsServerFiles, ['browser:reload']);
 	gulp.watch(paths.htmlViews, ['browser:reload']);
@@ -89,7 +90,7 @@ gulp.task('watch:app', ['join:partials'], function() {
 * TASK: browser:reload
 * Starts new server instance and reloads browser.
 *********************************************/
-gulp.task('browser:reload', ['server:start'],function() {
+gulp.task('browser:reload', ['server:start'], function() {
 	browser.reload();
 })
 

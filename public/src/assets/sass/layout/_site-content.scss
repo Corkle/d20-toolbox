@@ -1,0 +1,26 @@
+#content-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+}
+ 
+#content-box {
+  height: 100%;
+  padding: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ @media (min-width: $window-medium-max-width) {
+   #content-wrapper {
+      margin-left: 64px;
+    }
+    
+    #sidenav-wrapper:not(.folded) ~ #content-wrapper {
+      margin-left: 272px;
+    }
+    
+ }

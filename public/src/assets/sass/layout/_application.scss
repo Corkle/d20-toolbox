@@ -1,0 +1,17 @@
+html, body {
+  background-color: $site-background-color;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#site-wrapper {
+  position: relative; 
+  height: 100%;
+}
