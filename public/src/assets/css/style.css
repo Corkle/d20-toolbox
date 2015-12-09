@@ -82,11 +82,10 @@ html, body {
   background: transparent;
 }
 
-#site-sidenav
- {
-  width: 272px;
+#site-sidenav {
+  width: 372px;
   min-width: 0px;
-  max-width: 272px;
+  max-width: 372px;
 }
 
 .nav-menu-bar {
@@ -257,7 +256,7 @@ html, body {
   }
 
   #sidenav-wrapper.folded #site-sidenav:hover {
-    width: 272px;
+    width: 372px;
   }
 
   .folded .nav-menu-bar .md-button {
