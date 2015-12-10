@@ -1,9 +1,11 @@
 // Base variables and typography
 @import 'base/config';
-@import 'base/typography';
 
 // Structure and layout files
 @import 'layout/application';
 @import 'layout/sidenav';
 @import 'layout/site-content';
 @import 'layout/topnav';
+
+// Common classes
+@import 'base/common-classes';

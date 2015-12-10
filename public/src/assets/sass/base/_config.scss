@@ -1,11 +1,17 @@
 $site-background-color: #EEE;
 
-$nav-color-primary: #106CC8;
-$nav-color-secondary: #267ED5;
-$nav-color-hue1: #4592de;
-$nav-color-hue2:#66a5e4;
-$nav-font-color: white;
-$nav-heading-color: rgba(255, 255, 255, 0.54);
-
 $window-small-max-width: 600px;
 $window-medium-max-width: 960px;
+
+$sidenav-color-primary: #106CC8;
+$sidenav-color-secondary: #267ED5;
+$sidenav-color-hue1: #4592de;
+$sidenav-color-hue2:#66a5e4;
+$sidenav-font-color: white;
+$sidenav-heading-color: rgba(255, 255, 255, 0.54);
+
+$sidenav-full-width: 272px;
+$sidenav-folded-width: 64px;
+$sidenav-menu-item-height: 40px;
+$sidenav-menu-item-height-folded: 40px;
+$sidenav-left-right-padding: 16px;

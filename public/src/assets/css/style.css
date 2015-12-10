@@ -1,51 +1,3 @@
-.s24 {
-  width: 24px;
-  height: 24px;
-}
-
-.s36 {
-  width: 36px;
-  height: 36px;
-}
-
-.s48 {
-  width: 48px;
-  height: 48px;
-}
-
-.scrollable {
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.scrollable.hover {
-  overflow-y: hidden !important;
-}
-
-.scrollable.hover > * {
-  margin-top: -1px;
-}
-
-.scrollable.hover:hover {
-  overflow: visible !important;
-  overflow-y: auto !important;
-}
-
-.folded .hidden-folded {
-  display: none;
-}
-
-.folded:hover .hidden-folded {
-  display: block;
-}
-
-.md-button.layout,
-.md-button.layout-column,
-.md-button.layout-row {
-  display: flex;
-}
-
 html, body {
   background-color: #EEE;
   height: 100%;
@@ -53,7 +5,7 @@ html, body {
   overflow: hidden;
 }
 
-* {
+*, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -72,20 +24,14 @@ html, body {
   height: 100%;
   -webkit-transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-#site-sidenav {
   background: #106CC8;
+  width: 272px;
+  min-width: 0px;
+  max-width: 272px;
 }
 
 #site-sidenav md-content {
   background: transparent;
-}
-
-#site-sidenav {
-  width: 372px;
-  min-width: 0px;
-  max-width: 372px;
 }
 
 .nav-menu-bar {
@@ -101,22 +47,13 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
   margin: 0;
-}
-
-.nav-menu-bar li {
-  margin: 0;
-}
-
-.nav-menu-bar li span {
-  overflow: hidden;
+  width: 100%;
 }
 
 .nav-menu-bar .md-button {
   border-radius: 0;
   color: white;
   cursor: pointer;
-  display: block;
-  align-items: inherit;
   line-height: 40px;
   margin: 0;
   max-height: 40px;
@@ -136,25 +73,6 @@ html, body {
 
 .nav-menu-bar .md-button md-icon {
   color: white;
-}
-
-.nav-menu-bar md-select {
-  margin: 0;
-  width: 100%;
-}
-
-.nav-menu-bar md-select md-select-label {
-  justify-content: flex-end;
-  padding-top: 10px;
-}
-
-.nav-menu-bar md-select md-select-label span {
-  margin-right: auto;
-  padding-left: 13px;
-}
-
-.nav-menu-bar md-select .md-select-icon {
-  margin-right: 28px;
 }
 
 .nav-menu-bar button.md-button::-moz-focus-inner {
@@ -199,8 +117,7 @@ html, body {
 }
 
 .nav-menu-bar nav-menu ul a.md-button {
-  display: block;
-  padding: 0 16px 0 32px;
+  padding-left: 32px;
 }
 
 .nav-menu-bar menu-link a.md-button {
@@ -247,44 +164,37 @@ html, body {
 }
 
 .nav-menu-label-icon {
-  margin-right: 15px;
+  margin-right: 16px;
 }
 
 @media (min-width: 960px) {
-  #sidenav-wrapper.folded #site-sidenav {
+  .folded #site-sidenav {
     width: 64px;
   }
-
-  #sidenav-wrapper.folded #site-sidenav:hover {
-    width: 372px;
+  .folded #site-sidenav:hover {
+    width: 272px;
   }
-
   .folded .nav-menu-bar .md-button {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
   }
-
   .folded:hover .nav-menu-bar .md-button {
     text-align: left;
     padding-top: 0;
     padding-bottom: 0;
   }
-
   .folded .nav-menu-bar li a span {
     display: none;
   }
-
   .folded:hover .nav-menu-bar li a span {
     display: inline;
   }
-
   .folded .nav-menu-bar li a .nav-menu-label-icon {
     margin-right: auto;
   }
-
   .folded:hover .nav-menu-bar li a .nav-menu-label-icon {
-    margin-right: 15px;
+    margin-right: 16px;
   }
 }
 @media (max-width: 960px) {
@@ -373,4 +283,50 @@ html, body {
     padding-left: 10px;
     padding-right: 10px;
   }
+}
+.s24 {
+  width: 24px;
+  height: 24px;
+}
+
+.s36 {
+  width: 36px;
+  height: 36px;
+}
+
+.s48 {
+  width: 48px;
+  height: 48px;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollable.hover {
+  overflow-y: hidden !important;
+}
+
+.scrollable.hover:hover > * {
+  overflow: hidden;
+}
+
+.scrollable.hover:hover {
+  overflow-y: auto !important;
+}
+
+.folded .hidden-folded {
+  display: none;
+}
+
+.folded:hover .hidden-folded {
+  display: block;
+}
+
+.md-button.layout,
+.md-button.layout-column,
+.md-button.layout-row {
+  display: flex;
 }

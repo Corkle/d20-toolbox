@@ -19,11 +19,12 @@
 .scrollable.hover {
     overflow-y: hidden!important;
 }
-.scrollable.hover>* {
-    margin-top: -1px;
+
+.scrollable.hover:hover > * {
+
+    overflow: hidden;
 }
 .scrollable.hover:hover {
-    overflow: visible!important;
     overflow-y: auto!important;
 }
 

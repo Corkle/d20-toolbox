@@ -16,11 +16,11 @@
 
  @media (min-width: $window-medium-max-width) {
    #content-wrapper {
-      margin-left: 64px;
+      margin-left: $sidenav-folded-width;
     }
     
     #sidenav-wrapper:not(.folded) ~ #content-wrapper {
-      margin-left: 272px;
+      margin-left: $sidenav-full-width;      
     }
     
  }
