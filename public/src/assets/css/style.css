@@ -23,10 +23,12 @@ html, body {
   bottom: 0;
   overflow-x: hidden;
   height: 100%;
-  background: #106CC8;
+  background: #FFF;
   width: 272px;
   min-width: 0px;
   max-width: 272px;
+  box-shadow: 0 56px 5px 0 rgba(0, 0, 0, 0.3);
+  z-index: 100;
   -webkit-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0);
 }
@@ -44,10 +46,16 @@ html, body {
   background: transparent;
 }
 
-.nav-menu-bar {
-  border-top: 1px solid #267ED5;
-  border-bottom: 1px solid #267ED5;
-  overflow: hidden;
+#site-sidenav :not(md-toolbar) + .nav-menu-bar {
+  border-top: 1px solid #EDEDED;
+}
+
+#site-sidenav .nav-menu-bar {
+  border-bottom: 1px solid #EDEDED;
+}
+
+#site-sidenav > .nav-menu-bar:last-child {
+  border-bottom: none;
 }
 
 .nav-menu-bar,
@@ -56,14 +64,14 @@ html, body {
   padding: 0;
   max-width: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0;
 }
 
 .nav-menu-bar .md-button {
   border-radius: 0;
   font-size: 13px;
-  color: white;
+  color: #616161;
   cursor: pointer;
   line-height: 36px;
   width: 100%;
@@ -87,11 +95,11 @@ html, body {
 
 .nav-menu-bar .md-button:hover,
 .nav-menu-bar .md-button:focus {
-  background: #267ED5;
+  background: #EDEDED;
 }
 
 .nav-menu-bar .md-button md-icon {
-  color: white;
+  color: #616161;
 }
 
 .nav-menu-bar button.md-button::-moz-focus-inner {
@@ -99,7 +107,7 @@ html, body {
 }
 
 .nav-menu-bar .md-button.active {
-  background: #267ED5;
+  background: #EDEDED;
 }
 
 .menu-heading {
@@ -107,7 +115,7 @@ html, body {
   line-height: 32px;
   padding: 0 16px;
   text-align: left;
-  color: rgba(255, 255, 255, 0.54);
+  color: rgba(61, 61, 61, 0.54);
 }
 
 nav-menu .collapsed {
@@ -132,11 +140,11 @@ nav-menu .collapsed {
 }
 
 .toggle-list-open {
-  background: #267ED5;
+  background: #EDEDED;
 }
 
 .menu-toggle-list li {
-  background: #267ED5;
+  background: #EDEDED;
 }
 
 .nav-menu-bar nav-menu ul ul li > a.md-button {
@@ -144,11 +152,11 @@ nav-menu .collapsed {
 }
 
 .menu-toggle-list .toggle-list-open {
-  background: #4592de;
+  background: #CFCFCF;
 }
 
 .menu-toggle-list .menu-toggle-list li {
-  background: #4592de;
+  background: #CFCFCF;
 }
 
 .nav-menu-bar nav-menu ul ul ul li > a.md-button {
@@ -156,11 +164,11 @@ nav-menu .collapsed {
 }
 
 .menu-toggle-list .menu-toggle-list .toggle-list-open {
-  background: #66a5e4;
+  background: #B8B8B8;
 }
 
 .menu-toggle-list .menu-toggle-list .menu-toggle-list li {
-  background: #66a5e4;
+  background: #B8B8B8;
 }
 
 .md-button-toggle .md-toggle-icon {
@@ -183,6 +191,7 @@ nav-menu .collapsed {
 @media (min-width: 960px) {
   #site-sidenav {
     min-width: 0;
+    box-shadow: 0 64px 5px 0 rgba(0, 0, 0, 0.3);
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
     -webkit-transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -208,8 +217,8 @@ nav-menu .collapsed {
   }
   .folded .nav-menu-bar .md-button {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   .folded #site-sidenav:hover .nav-menu-bar .md-button {
     text-align: left;
