@@ -23,8 +23,6 @@ html, body {
   bottom: 0;
   overflow-x: hidden;
   height: 100%;
-  -webkit-transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   background: #106CC8;
   width: 272px;
   min-width: 0px;
@@ -187,6 +185,8 @@ nav-menu .collapsed {
     min-width: 0;
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
+    -webkit-transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
   .nav-menu-bar .md-button {

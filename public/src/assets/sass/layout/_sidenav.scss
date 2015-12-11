@@ -5,8 +5,6 @@
   bottom: 0;
   overflow-x: hidden;
   height: 100%;
-  -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
   background: $sidenav-color-primary;
   width:     $sidenav-full-width;
   min-width: 0px;
@@ -171,6 +169,8 @@ nav-menu .collapsed {
     min-width: 0;
     -webkit-transform: translate3d(0,0,0)!important;
     transform: translate3d(0,0,0)!important;
+    -webkit-transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: width .4s cubic-bezier(0.25, 0.8, 0.25, 1);
    }
    
    .nav-menu-bar .md-button {
