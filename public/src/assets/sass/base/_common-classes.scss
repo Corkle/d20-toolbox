@@ -28,13 +28,6 @@
     overflow-y: auto!important;
 }
 
-.folded .hidden-folded {
-    display: none;
-}
-.folded:hover .hidden-folded {
-    display: block;
-}
-
 .md-button.layout,
 .md-button.layout-column,
 .md-button.layout-row {

@@ -1,13 +1,13 @@
 <md-toolbar id="top-navbar" class="md-whiteframe-z1 top-toolbar" ng-controller="TopNavCtrl as nav">
 	<div class="md-toolbar-tools">
-		<md-button class="nav-item">
+		<md-button class="nav-item" ng-click="nav.openSidenav()" hide-gt-md>
 			<md-icon md-svg-icon="{{nav.svgIcons.menu}}"></md-icon>
 		</md-button>
-		<md-button class="nav-item">
+		<div class="nav-item">
 		<div>Dashboard</div>
-		</md-button>
+		</div>
 		<span flex></span>
-		<div class="nav-tools" layout="row">
+		<div class="nav-tools" layout="row">			
 			<md-button>Button</md-button>
 			<md-button class="" aria-label="Account">
 				<md-icon md-svg-icon="{{nav.svgIcons.account}}"></md-icon>

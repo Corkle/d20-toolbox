@@ -20,7 +20,7 @@ exports.render = function (req, res) {
 		}
 		
 		res.render('index', {
-			sidenavFolded: false,
+			sidenavFolded: true,
 			jsFiles: jsAssets
 		})
 	});

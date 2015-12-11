@@ -1,18 +1,21 @@
-.top-toolbar {
-  min-height: 0;
+.top-toolbar,
+.top-toolbar .md-toolbar-tools {
+  height: $topnav-compact-height;
+  min-height: $topnav-compact-height;
 }
 
 .top-toolbar .md-toolbar-tools {
+  font-size: 18px;
   padding: 0;
 }
 
 .top-toolbar .md-toolbar-tools .nav-item,
 .top-toolbar .md-toolbar-tools .nav-tools > .md-button,
-.top-toolbar .md-toolbar-tools > .md-button:first-child,
-.top-toolbar .md-toolbar-tools .nav-item .md-ripple-container {
-  line-height: 64px;
+.top-toolbar .md-toolbar-tools .nav-item .md-ripple-container,
+.top-toolbar .md-toolbar-tools .nav-tools > .md-button .md-ripple-container {
+  line-height: $topnav-compact-height;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 10px;
   border-radius: 0;
 }
 
@@ -25,35 +28,35 @@
   font-size: 18px;
  }    
  
- .nav-brand-icon,
-.nav-brand-icon .md-button {
-  width: 64px;
+.nav-brand-icon .md-button,
+.nav-brand-icon .md-ripple-container {  
   padding: 0;
-  line-height: 64px;
+  width: 64px;
+  line-height: $topnav-compact-height;
   margin: 0;
   border-radius: 0;
  }
  
  @media (min-width: $window-medium-max-width) {
- .top-toolbar {
-      min-height: 64px;
-    }
-
- }
- 
- @media (max-width: $window-medium-max-width) {
+  .top-toolbar,
+  .top-toolbar .md-toolbar-tools {
+    min-height: $topnav-full-height;
+  }
+   
    .top-toolbar .md-toolbar-tools {
-      height: 56px;
-      min-height: 56px;
-    }
+     font-size: 20px;
+   }
     
-    .top-toolbar .nav-item,
-    .top-toolbar .nav-tools > .md-button {
-      line-height: 56px;
-    }
+  .top-toolbar .md-toolbar-tools .nav-item,
+  .top-toolbar .md-toolbar-tools .nav-tools > .md-button,
+  .top-toolbar .md-toolbar-tools .nav-item .md-ripple-container,
+  .top-toolbar .md-toolbar-tools .nav-tools > .md-button .md-ripple-container {
+    line-height: $topnav-full-height;
+    padding: 0 16px;
+  }
     
-    #top-navbar .md-toolbar-tools .nav-tools .md-button {
-      padding-left: 10px;
-      padding-right: 10px;
-    }   
+  .nav-brand-icon .md-button,
+  .nav-brand-icon .md-ripple-container {
+    line-height: $topnav-full-height;
+  }
  }

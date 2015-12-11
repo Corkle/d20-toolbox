@@ -1,5 +1,5 @@
 <div ng-controller="SideNavCtrl as nav" id="sidenav-wrapper" ng-class="{'folded': {{app.sidenavFolded}}}">
-	<md-sidenav id="site-sidenav" class="md-sidenav-left" md-component-id="left-nav" md-is-locked-open="$mdMedia('gt-md')">
+	<md-sidenav id="site-sidenav" class="md-sidenav-left" md-component-id="left-nav">
 		
 		<md-toolbar class="md-whiteframe-z1 top-toolbar">
 			<div class="md-toolbar-tools">
@@ -11,7 +11,7 @@
 				</div>
 				
 				<md-button class="nav-item">
-					<h1 layout-margin class="hidden-folded">D20 Toolbox</h1>
+					<div class="hidden-folded">D20 Toolbox</div>
 				</md-button>
 				<span flex></span>
 			</div>
@@ -40,7 +40,7 @@
 						<menu-link>&lt;menu-link&gt;</menu-link>
 						<nav-menu title="Nested Nav Menu" toggle-menu>
 							<menu-link>&lt;menu-link&gt;</menu-link>
-							<nav-menu title="Double Nested Menu" toggle-menu>
+							<nav-menu title="Double Nested Menu ddddddddddddd" toggle-menu>
 								<menu-link>Item>>></menu-link>
 							</nav-menu>
 						</nav-menu>
