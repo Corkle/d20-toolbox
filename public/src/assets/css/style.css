@@ -253,7 +253,7 @@ nav-menu .collapsed {
 
 #content-box {
   height: 100%;
-  padding: 25px;
+  padding: 8px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -265,6 +265,10 @@ nav-menu .collapsed {
 
   #sidenav-wrapper:not(.folded) ~ #content-wrapper {
     margin-left: 272px;
+  }
+
+  #content-box {
+    padding: 25px;
   }
 }
 .top-toolbar,

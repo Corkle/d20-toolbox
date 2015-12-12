@@ -84,7 +84,7 @@ gulp.task('clean:scripts', function (cb) {
 * TASK: watch:app
 * Watches for changes in files and sets tasks.
 *********************************************/
-gulp.task('watch:app', ['join:partials'], function () {
+gulp.task('watch:app', ['join:partials', 'compass'], function () {
 	if (env.NODE_ENV !== 'production') {
 		gulp.watch(paths.jsClientFiles, ['join:partials']);
 		gulp.watch(paths.htmlPartials, ['join:partials']);

@@ -9,7 +9,7 @@
  
 #content-box {
   height: 100%;
-  padding: 25px;
+  padding: 8px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -21,6 +21,10 @@
     
     #sidenav-wrapper:not(.folded) ~ #content-wrapper {
       margin-left: $sidenav-full-width;      
+    }
+    
+    #content-box {
+      padding: 25px;
     }
     
  }
