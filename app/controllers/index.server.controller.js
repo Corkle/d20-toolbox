@@ -6,22 +6,43 @@ function fileExists(file, cb) {
 				return cb(true);
 			}
 		}
+		console.log('Could not find file:', file);
 		return cb(false);
 	})
 }
 
-exports.render = function (req, res) {
-	var jsAssets = [];
-	var jsScript = 'src/assets/js/ng-scripts.server.js';
+function fileChecker(files, location, cb) {
+	var uncheckedFiles = files.slice(0);
+	var verifiedFiles = [];
 
-	fileExists('public/' + jsScript, function (exists) {
-		if (exists) {
-			jsAssets.push(jsScript);
-		}
-		
+		(function checkInOrder() {
+			var file = uncheckedFiles.splice(0,1)[0];
+			
+			fileExists(location + file, function (exists) {
+				if (exists) {
+					verifiedFiles.push(file);
+				}
+
+				if (uncheckedFiles.length == 0) {
+					cb(verifiedFiles);
+				} else {
+					setTimeout(checkInOrder, 0);
+				}
+			})
+		} ());
+}
+
+var config = require('../../config/config.js');
+
+exports.render = function (req, res) {
+	var jsAssets = config.assets.js;
+	var cssAssets = config.assets.css;
+
+	fileChecker(jsAssets, 'public/', function (jsFiles) {
 		res.render('index', {
 			sidenavFolded: true,
-			jsFiles: jsAssets
+			jsFiles: jsFiles,
+			cssFiles: cssAssets
 		})
 	});
 }

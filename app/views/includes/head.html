@@ -5,8 +5,10 @@
 
     <title>D20 Toolbox</title>
 
-    <link rel="stylesheet" type="text/css" href="src/assets/libs/angular-material/angular-material.css">
-    <link rel="stylesheet" type="text/css" href="src/assets/css/style.css">
+{% for file in cssFiles %}
+<link rel="stylesheet" type="text/css" href="<%= file %>">{% endfor %}
+    <!--<link rel="stylesheet" type="text/css" href="src/assets/libs/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="src/assets/css/style.css">-->
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <base href="/">
