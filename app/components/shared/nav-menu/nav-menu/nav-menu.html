@@ -1,4 +1,4 @@
-<li ng-show="title" ng-class="{'toggle-list-open': isOpen && canToggle}" ng-cloak>
+<li ng-show="title" ng-class="{'toggle-list-open': isOpen && canToggle}">
 	<a class="layout-row md-button" ng-class="{'md-button-toggle': canToggle}" ng-click="toggleList()" md-ink-ripple layout="row">
 		<md-icon ng-show="labelIcon" md-svg-src="{{labelIcon}}" class="nav-menu-label-icon"></md-icon>
 		<span ng-bind="title" flex></span>
