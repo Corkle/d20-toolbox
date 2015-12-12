@@ -11,7 +11,7 @@ var assets = {
 		"src/assets/libs/angular-aria/angular-aria.js",
 		"src/assets/libs/angular-animate/angular-animate.js",
 		"src/assets/libs/angular-material/angular-material.js",
-		"src/assets/js/ng-scripts.server.js"
+		"src/assets/js/ng-scripts.js"
 	]
 };
 

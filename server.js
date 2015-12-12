@@ -10,4 +10,4 @@ app.listen(port);
 
 module.exports = app;
 
-console.log('Server running at http://localhost:' + port);
+console.log('Server running at http://localhost:' + port + '. ENV: ' + process.env.NODE_ENV);
