@@ -11,6 +11,10 @@ html, body {
   box-sizing: border-box;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 #site-wrapper {
   position: relative;
   height: 100%;

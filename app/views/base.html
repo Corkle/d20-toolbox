@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="toolboxApp" ng-cloak>
+<html lang="en" ng-app="toolboxApp">
 {% include 'includes/head.html' %}
 
-<body ng-controller="AppCtrl as app">
+<body ng-controller="AppCtrl as app" ng-cloak>
 	<div id="site-wrapper">
 		{% include '../components/side-navbar/side-navbar.html' %}
-		<div id="content-wrapper">					
+		<div id="content-wrapper" layout="column">					
 		{% include '../components/top-navbar/top-navbar.html' %}		
 			
-			<div id="content-box">
+			<div id="content-box" ng-cloak>
 				{% block content %} {% endblock %}
 			</div>
 		</div>
