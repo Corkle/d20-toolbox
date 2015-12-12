@@ -11,45 +11,92 @@ function fileExists(file, cb) {
 	})
 }
 
-function fileChecker(files, location, cb) {
+function fileChecker(files, path, cb) {
 	var uncheckedFiles = files.slice(0);
 	var verifiedFiles = [];
 
-		(function checkInOrder() {
-			var file = uncheckedFiles.splice(0,1)[0];
-			
-			fileExists(location + file, function (exists) {
-				if (exists) {
-					verifiedFiles.push(file);
-				}
+	(function checkInOrder() {
+		var file = uncheckedFiles.splice(0, 1)[0];
 
-				if (uncheckedFiles.length == 0) {
-					cb(verifiedFiles);
-				} else {
-					setTimeout(checkInOrder, 0);
-				}
-			})
-		} ());
+		fileExists(path + file, function (exists) {
+			if (exists) {
+				verifiedFiles.push(file);
+			}
+
+			if (uncheckedFiles.length == 0) {
+				cb(verifiedFiles);
+			} else {
+				setTimeout(checkInOrder, 0);
+			}
+		})
+	} ());
 }
 
-var config = require('../../config/config.js');
+function verifyAssets(assets, path, cb) {
+	var js,
+		css,
+		libs;
 
-exports.render = function (req, res) {
-	var jsAssets = config.assets.js;
-	var cssAssets = config.assets.css;
+	function checkComplete(cb) {
+		if (js && css && libs) {
+			cb({
+					js: js,
+					css: css,
+					libs: libs
+				});				
+		}
+	}
 
-	fileChecker(jsAssets, 'public/', function (jsFiles) {
-		res.render('index', {
-			sidenavFolded: true,
-			jsFiles: jsFiles,
-			cssFiles: cssAssets
-		})
+	fileChecker(assets.js, path, function (files) {
+		if (files) {
+			js = files;
+		} else {
+			js = [];
+		}
+		checkComplete(cb);
+	});
+	fileChecker(assets.css, path, function (files) {
+		if (files) {
+			css = files;
+		} else {
+			css = [];
+		}
+		checkComplete(cb);
+	});
+	fileChecker(assets.libs, path, function (files) {
+		if (files) {
+			libs = files;
+		} else {
+			libs = [];
+		}
+		checkComplete(cb);
 	});
 }
 
+var config = require('../../config/config.js');
+// var assetFiles = {
+// 	js: config.assets.js,
+// 	css: config.assets.css,
+// 	libs: config.assets.libs
+// };
+
+exports.render = function (req, res) {
+	// verifyAssets(assetFiles, 'public/', function (assets) {
+		res.render('index', {
+			sidenavFolded: true,
+			jsFiles: config.assets.js,
+			cssFiles: config.assets.css,
+			libFiles: config.assets.libs
+		})
+	// });
+}
+
 exports.renderError = function (req, res) {
-	console.log('renderError');
 	res.render('error', {
+		sidenavFolded: false,
+		jsFiles: config.assets.js,
+		cssFiles: config.assets.css,
+		libFiles: config.assets.libs,
 		error: req.error
 	})
 }

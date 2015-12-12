@@ -5,8 +5,10 @@ var assets = {
 		"dist/main.css"
 	],
 	js: [
-		"dist/libs.js",
 		"dist/main.js"
+	],
+	libs: [
+		"dist/libs.js"
 	]
 };
 
