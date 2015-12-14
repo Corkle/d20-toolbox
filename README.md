@@ -7,6 +7,7 @@ app/
 ---------- base.html
 ---------- header.html
 ---------- index.html
+----- application.js
 config/
 ----- env/
 ---------- development.js
@@ -21,9 +22,7 @@ config/
 ----- mongoose.js
 ----- passport.js
 gulp/
------ development.js
------ production.js
------ modules.js
+----- config.js
 modules/
 ----- dashboard/
 ---------- src/
@@ -64,12 +63,18 @@ modules/
 ------------------------- libs.js
 --------------- index.html
 public/
------ assets/
----------- css/
----------- libs/
----------- js/
---------------- ng-scripts.js
------ application.js
+----- dist/
+---------- libs.js
+---------- main.css
+---------- main.js
+----- src/
+---------- assets/
+--------------- css/
+--------------- img/
+--------------- js/
+-------------------- ng-scripts.js
+--------------- libs/
+--------------- sass/
 bower.json
 gulpfile.js
 package.json
