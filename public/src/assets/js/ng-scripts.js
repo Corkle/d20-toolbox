@@ -38,10 +38,12 @@ angular.module('appSvgIcons', [])
 			chevronUp: iconsFolder + 'chevron-up.svg',
 			d20: iconsFolder + 'd20.svg',			
 			dotsVertical: iconsFolder + 'dots-vertical.svg',
+			facebookBox: iconsFolder + 'facebook-box.svg',
 			mathCompass: iconsFolder + 'math-compass.svg',
 			menu: iconsFolder + 'menu.svg',	
 			menuUp: iconsFolder + 'menu-up.svg',
-			sword: iconsFolder + 'sword.svg'
+			sword: iconsFolder + 'sword.svg',
+			twitter: iconsFolder + 'twitter.svg'
 		}
 	})
 var navMenuComponent = angular.module('navMenu', ['appSvgIcons']);
