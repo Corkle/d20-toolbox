@@ -83,20 +83,23 @@ var config = require('../../config/config.js');
 exports.render = function (req, res) {
 	// verifyAssets(assetFiles, 'public/', function (assets) {
 		res.render('index', {
+			title: 'Dashboard',
 			sidenavFolded: true,
 			jsFiles: config.assets.js,
 			cssFiles: config.assets.css,
-			libFiles: config.assets.libs
-		})
+			libFiles: config.assets.libs,
+			user: req.user ? req.user.username : ''
+		});
 	// });
-}
+};
 
 exports.renderError = function (req, res) {
 	res.render('error', {
+		title: 'Error - D20 Toolbox',
 		sidenavFolded: false,
 		jsFiles: config.assets.js,
 		cssFiles: config.assets.css,
 		libFiles: config.assets.libs,
 		error: req.error
-	})
-}
+	});
+};

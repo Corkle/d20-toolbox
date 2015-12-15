@@ -33,3 +33,10 @@
 .md-button.layout-row {
     display: flex;
 }
+
+.flex-divider {
+    flex: 1;
+    background-color: #CCC;
+    height: 1px;
+    margin: 7px 0;   
+}

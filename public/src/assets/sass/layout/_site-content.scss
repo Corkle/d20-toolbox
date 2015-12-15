@@ -15,11 +15,11 @@
 }
 
  @media (min-width: $window-medium-max-width) {
-   #content-wrapper {
+   #content-wrapper.base-nav {
       margin-left: $sidenav-folded-width;
     }
     
-    #sidenav-wrapper:not(.folded) ~ #content-wrapper {
+    #sidenav-wrapper:not(.folded) ~ #content-wrapper.base-nav {
       margin-left: $sidenav-full-width;      
     }
     

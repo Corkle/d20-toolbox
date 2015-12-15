@@ -20,6 +20,14 @@ html, body {
   height: 100%;
 }
 
+md-input-container.login-container {
+  padding-bottom: 2px;
+}
+
+.login-divider-text {
+  margin: 0 8px;
+}
+
 #site-sidenav {
   display: flex !important;
   position: absolute !important;
@@ -259,11 +267,11 @@ nav-menu .collapsed {
 }
 
 @media (min-width: 960px) {
-  #content-wrapper {
+  #content-wrapper.base-nav {
     margin-left: 64px;
   }
 
-  #sidenav-wrapper:not(.folded) ~ #content-wrapper {
+  #sidenav-wrapper:not(.folded) ~ #content-wrapper.base-nav {
     margin-left: 272px;
   }
 
@@ -370,4 +378,11 @@ nav-menu .collapsed {
 .md-button.layout-column,
 .md-button.layout-row {
   display: flex;
+}
+
+.flex-divider {
+  flex: 1;
+  background-color: #CCC;
+  height: 1px;
+  margin: 7px 0;
 }

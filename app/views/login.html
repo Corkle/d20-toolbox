@@ -1,6 +1,39 @@
-{% extends 'base.html' %} {% block content %} 
-<div>
-	<h2>LOGIN</h2>
+{% extends 'base.html' %} {% block content %} {% include 'includes/flash.html' %}
+
+
+<div id="login-form" layout="row" layout-align="center center" layout-fill ng-cloak>
+
+  <md-card layout-padding>
+    <md-card-content>
+      <div layout="row" layout-align="center center">
+        <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s24"></md-icon>
+        <span class="md-headline" layout-margin>D20 Toolbox</span>
+      </div>
+      <form action="/login" method="post" layout="column">
+        <div layout-margin>
+          <md-input-container class="login-container">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+          </md-input-container>
+          <md-input-container class="login-container">
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" required>
+          </md-input-container>
+        </div>
+        <md-button type="submit" class="md-raised md-primary">Log In</md-button>
+      </form>
+      
+      <div layout="row" layout-align="center" layout-margin>
+        <div class="flex-divider"></div>
+        <div class="login-divider-text">OR</div>
+        <div class="flex-divider"></div>
+      </div>
+      
+      
+
+    </md-card-content>
+  </md-card>
+
 </div>
 
 {% endblock %}

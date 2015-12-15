@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ngMaterial">
 {% include 'includes/head.html' %}
 
 <body>
 	<div id="site-wrapper">
 		<div id="content-wrapper" layout="column">					
-			<div>hello</div>
-			<div id="content-box" ng-cloak>
+			<div id="content-box">
 				{% block content %} {% endblock %}
 			</div>
 		</div>

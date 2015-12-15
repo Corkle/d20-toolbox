@@ -5,10 +5,10 @@
 <body ng-controller="AppCtrl as app">
 	<div id="site-wrapper">
 		{% include '../components/side-navbar/side-navbar.html' %}
-		<div id="content-wrapper" layout="column">					
+		<div id="content-wrapper" class="base-nav" layout="column">					
 		{% include '../components/top-navbar/top-navbar.html' %}		
 			
-			<div id="content-box" ng-cloak>
+			<div id="content-box">
 				{% block content %} {% endblock %}
 			</div>
 		</div>
