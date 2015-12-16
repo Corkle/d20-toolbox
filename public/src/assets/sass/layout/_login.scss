@@ -1,7 +1,17 @@
-md-input-container.login-container {
+md-input-container.no-bottom {
 	padding-bottom: 2px;
 }
 
 .login-divider-text {
+	color: #B8B8B8;
 	margin: 0 8px;
+}
+
+.login-links a {
+	font-size: 12px;
+	margin: 4px 0;
+}
+
+.login-small-text {
+	margin: 18px 0;
 }

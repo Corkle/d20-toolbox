@@ -1,1 +1,1 @@
-var appComponents = angular.module('toolboxApp.components', ['navMenu', 'appSvgIcons']);
+var appComponents = angular.module('appComponents', ['ngMaterial', 'navMenu', 'appSvgIcons']);

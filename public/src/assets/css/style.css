@@ -15,17 +15,33 @@ html, body {
   display: none !important;
 }
 
+a, a:hover, a:visited {
+  color: #427fed;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 #site-wrapper {
   position: relative;
   height: 100%;
 }
 
-md-input-container.login-container {
+md-input-container.no-bottom {
   padding-bottom: 2px;
 }
 
 .login-divider-text {
+  color: #B8B8B8;
   margin: 0 8px;
+}
+
+.login-links a {
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.login-small-text {
+  margin: 18px 0;
 }
 
 #site-sidenav {
@@ -356,6 +372,11 @@ nav-menu .collapsed {
   height: 48px;
 }
 
+.sp-tb-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .scrollable {
   overflow-x: hidden;
   overflow-y: auto;
@@ -385,4 +406,16 @@ nav-menu .collapsed {
   background-color: #CCC;
   height: 1px;
   margin: 7px 0;
+}
+
+.facebook-icon {
+  color: #3b5998;
+}
+
+.twitter-icon {
+  color: #55acee;
+}
+
+.google-plus-icon {
+  color: #dc4e41;
 }

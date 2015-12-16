@@ -9,6 +9,7 @@ angular.module('appSvgIcons', [])
 			d20: iconsFolder + 'd20.svg',			
 			dotsVertical: iconsFolder + 'dots-vertical.svg',
 			facebookBox: iconsFolder + 'facebook-box.svg',
+			googlePlus: iconsFolder + 'google-plus-box.svg',
 			mathCompass: iconsFolder + 'math-compass.svg',
 			menu: iconsFolder + 'menu.svg',	
 			menuUp: iconsFolder + 'menu-up.svg',

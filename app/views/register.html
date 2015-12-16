@@ -1,10 +1,60 @@
-{% extends 'base.html' %} {% block content %} 
-<div>
-	<h2>Register</h2>
+{% extends 'base.html' %} {% block content %} {% include 'includes/flash.html' %}
+<div id="register-form" ng-controller="FormCtrl" layout="row" layout-align="center center" ng-cloak>
+  <md-card>
+    <md-card-content>
+      <div layout="row" layout-align="center center">
+        <span class="md-headline" layout-margin>Create New Account</span>
+      </div>
+
+      <form action="/register" method="post" layout="column" name="registerForm" layout-align="center center" novalidate>
+        <md-input-container>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" ng-model="form.email" required>
+          <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+            <div ng-message="required">This field is required.</div>
+            <div ng-message="email">Your email address is invalid</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="no-bottom">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" ng-model="form.password" ng-minlength="6" required>
+        </md-input-container>
+        <md-input-container class="no-bottom">
+          <label for="chkPassword">Confirm Password</label>
+          <input type="password" name="chkPassword" id="chkPassword" ng-model="form.chkPassword" required>
+        </md-input-container>
+        <md-input-container>
+        <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+            <div ng-message="required">This field is required.</div>
+            <div ng-message="minlength">Password must be at least 6 characters.</div>
+          </div>  
+        </md-input-container>
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="registerForm.$invalid">Register</md-button>
+      </form>
+
+      <div class="sp-tb-10" layout="row" layout-align="center" layout-margin>
+        <div class="flex-divider"></div>
+        <div class="login-divider-text">OR</div>
+        <div class="flex-divider"></div>
+      </div>
+
+      <div class="sp-tb-10" layout="row" layout-align="center">
+        <span>Log in with:</span>
+      </div>
+
+      <div layout="row" layout-align="space-around center">
+        <md-button class="md-raised md-icon-button" aria-label="Facebook">
+          <md-icon class="s36 facebook-icon" md-svg-icon="src/assets/img/icons/facebook-box.svg"></md-icon>
+        </md-button>
+        <md-button class="md-raised md-icon-button" aria-label="Twitter">
+          <md-icon class="s36 twitter-icon" md-svg-icon="src/assets/img/icons/twitter.svg"></md-icon>
+        </md-button>
+        <md-button class="md-raised md-icon-button" aria-label="Google">
+          <md-icon class="s36 google-plus-icon" md-svg-icon="src/assets/img/icons/google-plus.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-card-content>
+  </md-card>
 </div>
-
-{% include 'includes/flash.html' %}
-
-
-
 {% endblock %}

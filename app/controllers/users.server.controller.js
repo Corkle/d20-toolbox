@@ -28,7 +28,6 @@ exports.renderLogin = function(req, res, next) {
 		res.render('login', {
 			title: 'Login',
 			messages: req.flash('error') || req.flash('info'),
-			jsFiles: config.assets.js,
 			cssFiles: config.assets.css,
 			libFiles: config.assets.libs
 		});
@@ -42,7 +41,9 @@ exports.renderRegister = function(req, res, next) {
 	if (!req.user) {
 		res.render('register', {
 			title: 'Register',
-			messages: req.flash('error')
+			messages: req.flash('error'),
+			cssFiles: config.assets.css,
+			libFiles: config.assets.libs
 		});
 	}
 	else {

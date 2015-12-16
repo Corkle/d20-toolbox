@@ -15,6 +15,12 @@ html, body {
   display: none !important;
 }
 
+a, a:hover, a:visited {
+  color: $site-links-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 #site-wrapper {
   position: relative; 
   height: 100%;

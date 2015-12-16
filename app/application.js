@@ -1,5 +1,5 @@
 var appName = 'toolboxApp';
-var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons', 'appServices']);
+var app = angular.module(appName, ['ngMaterial', 'ui.router','appComponents', 'templates', 'appSvgIcons', 'appServices']);
 
 app.config(['$locationProvider', function($locationProvider) {
 

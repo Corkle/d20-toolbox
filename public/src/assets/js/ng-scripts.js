@@ -1,5 +1,5 @@
 var appName = 'toolboxApp';
-var app = angular.module(appName, ['ngMaterial', 'ui.router','toolboxApp.components', 'templates', 'appSvgIcons', 'appServices']);
+var app = angular.module(appName, ['ngMaterial', 'ui.router','appComponents', 'templates', 'appSvgIcons', 'appServices']);
 
 app.config(['$locationProvider', function($locationProvider) {
 
@@ -17,7 +17,7 @@ function DEBUG(msg, obj) {
     var timestamp = dt.toLocaleTimeString();
     console.log(timestamp, msg, obj);
 }
-var appComponents = angular.module('toolboxApp.components', ['navMenu', 'appSvgIcons']);
+var appComponents = angular.module('appComponents', ['ngMaterial', 'navMenu', 'appSvgIcons']);
 appComponents.controller('SideNavCtrl', ['svgIcons', function(svgIcons) {
 	this.svgIcons = svgIcons;
 }]);
@@ -39,6 +39,7 @@ angular.module('appSvgIcons', [])
 			d20: iconsFolder + 'd20.svg',			
 			dotsVertical: iconsFolder + 'dots-vertical.svg',
 			facebookBox: iconsFolder + 'facebook-box.svg',
+			googlePlus: iconsFolder + 'google-plus-box.svg',
 			mathCompass: iconsFolder + 'math-compass.svg',
 			menu: iconsFolder + 'menu.svg',	
 			menuUp: iconsFolder + 'menu-up.svg',

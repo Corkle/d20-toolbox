@@ -1,14 +1,32 @@
 {% extends 'base.html' %} {% block content %} {% include 'includes/flash.html' %}
 
 
-<div id="login-form" layout="row" layout-align="center center" layout-fill ng-cloak>
+<div id="login-form" layout="row" layout-align="center center" ng-cloak>
 
-  <md-card layout-padding>
+  <md-card>
     <md-card-content>
       <div layout="row" layout-align="center center">
-        <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s24"></md-icon>
-        <span class="md-headline" layout-margin>D20 Toolbox</span>
+        <span class="md-headline" layout-margin>Log in to D20 Toolbox</span>
       </div>
+
+      <div class="sp-tb-10" layout="row" layout-align="space-around center" layout-padding>
+        <md-button class="md-raised md-icon-button" aria-label="Facebook">
+          <md-icon class="s36 facebook-icon" md-svg-icon="src/assets/img/icons/facebook-box.svg"></md-icon>
+        </md-button>
+        <md-button class="md-raised md-icon-button" aria-label="Twitter">
+          <md-icon class="s36 twitter-icon" md-svg-icon="src/assets/img/icons/twitter.svg"></md-icon>
+        </md-button>
+        <md-button class="md-raised md-icon-button" aria-label="Google">
+          <md-icon class="s36 google-plus-icon" md-svg-icon="src/assets/img/icons/google-plus.svg"></md-icon>
+        </md-button>
+      </div>
+
+      <div layout="row" layout-align="center">
+        <div class="flex-divider"></div>
+        <div class="login-divider-text">OR</div>
+        <div class="flex-divider"></div>
+      </div>
+
       <form action="/login" method="post" layout="column">
         <div layout-margin>
           <md-input-container class="login-container">
@@ -23,20 +41,13 @@
         <md-button type="submit" class="md-raised md-primary">Log In</md-button>
       </form>
 
-      <div layout="row" layout-align="center" layout-margin>
-        <div class="flex-divider"></div>
-        <div class="login-divider-text">OR</div>
-        <div class="flex-divider"></div>
+      <div class="flex-divider"></div>
+
+      <div layout="column" class="login-links">
+        <a href="">Forgot your password?</a>
+        <a href="">Create account</a>
       </div>
 
-      <div layout="row" layout-align="center">
-        <md-button class="md-icon-button" aria-label="Facebook">
-          <md-icon md-svg-icon="{{nav.svgIcons.facebookBox}}"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="Twitter">
-          <md-icon md-svg-icon="{{nav.svgIcons.twitter}}"></md-icon>
-        </md-button>
-      </div>
     </md-card-content>
   </md-card>
 
