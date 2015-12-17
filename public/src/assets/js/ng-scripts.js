@@ -41,12 +41,6 @@ angular.module('appSvgIcons', [])
 			twitter: iconsFolder + 'twitter.svg'
 		}
 	})
-appComponents.controller('TopNavCtrl', ['svgIcons', '$mdSidenav', function(svgIcons, $mdSidenav) {
-	this.svgIcons = svgIcons;
-	this.openSidenav = function() {
-		$mdSidenav('left-nav').open();
-	}
-}]);
 var navMenuComponent = angular.module('navMenu', ['appSvgIcons']);
 var appServices = angular.module('appServices', []);
 
@@ -62,6 +56,12 @@ appServices.service('pageConfig', function() {
 		}
 	}
 });
+appComponents.controller('TopNavCtrl', ['svgIcons', '$mdSidenav', function(svgIcons, $mdSidenav) {
+	this.svgIcons = svgIcons;
+	this.openSidenav = function() {
+		$mdSidenav('left-nav').open();
+	}
+}]);
 navMenuComponent.controller('NavMenuCtrl', ['$scope', '$element', '$attrs', 'svgIcons', function ($scope, $element, $attrs, svgIcons) {
 	$scope.svgIcons = svgIcons;
 	
