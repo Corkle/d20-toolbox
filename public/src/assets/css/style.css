@@ -21,6 +21,10 @@ a, a:hover, a:visited {
   text-decoration: none;
 }
 
+md-input-container [ng-message]:not(.md-char-counter) {
+  padding-right: 0;
+}
+
 #site-wrapper {
   position: relative;
   height: 100%;
@@ -375,6 +379,11 @@ nav-menu .collapsed {
 .sp-tb-10 {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.sp-lr-10 {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .scrollable {

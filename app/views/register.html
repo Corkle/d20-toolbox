@@ -7,6 +7,7 @@
       </div>
 
       <form action="/register" method="post" layout="column" name="registerForm" layout-align="center center" novalidate>
+      <div>
         <md-input-container>
           <label for="email">Email</label>
           <input type="email" name="email" id="email" ng-model="form.email" required>
@@ -15,6 +16,7 @@
             <div ng-message="email">Your email address is invalid</div>
           </div>
         </md-input-container>
+
 
         <md-input-container class="no-bottom">
           <label for="password">Password</label>
@@ -25,11 +27,12 @@
           <input type="password" name="chkPassword" id="chkPassword" ng-model="form.chkPassword" required>
         </md-input-container>
         <md-input-container>
-        <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+        <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched" layout-wrap>
             <div ng-message="required">This field is required.</div>
             <div ng-message="minlength">Password must be at least 6 characters.</div>
           </div>  
         </md-input-container>
+        </div>
         <md-button type="submit" class="md-raised md-primary" ng-disabled="registerForm.$invalid">Register</md-button>
       </form>
 
