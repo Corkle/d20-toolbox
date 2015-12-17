@@ -22,6 +22,12 @@ appComponents.controller('SideNavCtrl', ['svgIcons', function(svgIcons) {
 	this.svgIcons = svgIcons;
 }]);
 
+appComponents.controller('TopNavCtrl', ['svgIcons', '$mdSidenav', function(svgIcons, $mdSidenav) {
+	this.svgIcons = svgIcons;
+	this.openSidenav = function() {
+		$mdSidenav('left-nav').open();
+	}
+}]);
 angular.module('appSvgIcons', [])
 	.service('svgIcons', function () {
 		var iconsFolder = 'src/assets/img/icons/';
@@ -56,12 +62,6 @@ appServices.service('pageConfig', function() {
 		}
 	}
 });
-appComponents.controller('TopNavCtrl', ['svgIcons', '$mdSidenav', function(svgIcons, $mdSidenav) {
-	this.svgIcons = svgIcons;
-	this.openSidenav = function() {
-		$mdSidenav('left-nav').open();
-	}
-}]);
 navMenuComponent.controller('NavMenuCtrl', ['$scope', '$element', '$attrs', 'svgIcons', function ($scope, $element, $attrs, svgIcons) {
 	$scope.svgIcons = svgIcons;
 	

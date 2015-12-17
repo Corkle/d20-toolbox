@@ -1,18 +1,18 @@
 {% extends 'base.html' %} {% block content %} {% include 'includes/flash.html' %}
-<div id="register-form" ng-controller="FormCtrl" layout="row" layout-align="center center" ng-cloak>
+<div id="register-form" ng-controller="FormCtrl" layout="column" layout-align="center center" ng-cloak>
   <md-card>
     <md-card-content>
-      <div layout="row" layout-align="center center">
+      <div class="sp-lr-10" layout="row" layout-align="center center">
         <span class="md-headline" layout-margin>Create New Account</span>
       </div>
 
-      <form action="/register" method="post" layout="column" name="registerForm" layout-align="center center" novalidate>
-        <div>
+      <form action="/register" method="post" layout="column" name="registerForm" novalidate>
+        <div layout-margin>
           <md-input-container>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" ng-model="form.email" required>
             <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
-              <div ng-message="required">This field is required.</div>
+              <div ng-message="required">An email address is required.</div>
               <div ng-message="email">Your email address is invalid</div>
             </div>
           </md-input-container>
@@ -20,20 +20,20 @@
 
           <md-input-container class="no-bottom">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" ng-model="form.password" ng-minlength="6" required>
-            <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
-              <div ng-message="required">This field is required.</div>
-              <div ng-message="minlength">Password must be at least 6 characters.</div>
-              <div ng-message="compareTo">Passwords do not match.</div>
-            </div>
+            <input type="password" name="password" id="password" ng-model="password" ng-minlength="6" required>
           </md-input-container>
           <md-input-container class="no-bottom">
-            <label for="chkPassword">Confirm Password</label>
-            <input type="password" name="chkPassword" id="chkPassword" ng-model="form.chkPassword" compare-to="form.password" required>
+            <label for="chkPassword">Confirm Password </label>
+            <input type="password" name="chkPassword" id="chkPassword" ng-model="chkPassword" ui-validate="'$value==registerForm.password.$viewValue'"
+            ui-validate-watch="'registerForm.password.$viewValue'" required>
           </md-input-container>
           <md-input-container>            
-            <div ng-messages="registerForm.chkPassword.$error" ng-if="registerForm.chkPassword.$touched">
-              <div ng-message="compareTo">Passwords do not match.</div>
+            <div ng-messages="registerForm.password.$error" ng-hide="!registerForm.password.$touched || registerForm.password.$valid">
+              <div ng-message="required">A password is required.</div>
+              <div ng-message="minlength">Password must be at least 6 characters.</div>
+            </div>
+            <div ng-messages="registerForm.chkPassword.$error" ng-hide="registerForm.chkPassword.$touched && registerForm.password.$invalid && registerForm.password.$touched">
+              <div ng-message="validator">Passwords do not match.</div>
             </div>
           </md-input-container>
         </div>
@@ -47,10 +47,10 @@
       </div>
 
       <div class="sp-tb-10" layout="row" layout-align="center">
-        <span>Log in with:</span>
+        <span>Register with:</span>
       </div>
 
-      <div layout="row" layout-align="space-around center">
+      <div class="sp-tb-10" layout="row" layout-align="space-around center" layout-padding>
         <md-button class="md-raised md-icon-button" aria-label="Facebook">
           <md-icon class="s36 facebook-icon" md-svg-icon="src/assets/img/icons/facebook-box.svg"></md-icon>
         </md-button>
@@ -60,6 +60,12 @@
         <md-button class="md-raised md-icon-button" aria-label="Google">
           <md-icon class="s36 google-plus-icon" md-svg-icon="src/assets/img/icons/google-plus.svg"></md-icon>
         </md-button>
+      </div>
+      
+      <div class="flex-divider"></div>
+
+      <div layout="column" class="login-links">
+        <a href="">Already have an account?</a>
       </div>
     </md-card-content>
   </md-card>

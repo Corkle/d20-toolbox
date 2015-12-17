@@ -1,20 +1,2 @@
-angular.module('formApp', ['ngMaterial', 'ngMessages'])
-	.controller('FormCtrl', function () { })
-    .directive("compareTo", function () {
-        return {
-            require: "ngModel",
-            scope: {
-                otherModelValue: "=compareTo"
-            },
-            link: function (scope, element, attributes, ngModel) {
-
-                ngModel.$validators.compareTo = function (modelValue) {
-                    return modelValue == scope.otherModelValue;
-                };
-
-                scope.$watch("otherModelValue", function () {
-                    ngModel.$validate();
-                });
-            }
-        };
-    });
+angular.module('formApp', ['ngMaterial', 'ngMessages', 'ui.validate'])
+	.controller('FormCtrl', function () { });

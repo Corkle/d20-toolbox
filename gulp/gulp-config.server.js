@@ -17,6 +17,8 @@ module.exports = {
 		'public/src/assets/libs/angular-aria/angular-aria.js',
 		'public/src/assets/libs/angular-animate/angular-animate.js',
 		'public/src/assets/libs/angular-material/angular-material.js',
+		"public/src/assets/libs/angular-messages/angular-messages.js",
+		"public/src/assets/libs/angular-ui-validate/dist/validate.js",
 		],
 	ngScript: {
 		path: 'public/src/assets/js/',

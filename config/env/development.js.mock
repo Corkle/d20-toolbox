@@ -17,6 +17,7 @@ var assets = {
 		"src/assets/libs/angular-animate/angular-animate.js",
 		"src/assets/libs/angular-material/angular-material.js",
 		"src/assets/libs/angular-messages/angular-messages.js",
+		"src/assets/libs/angular-ui-validate/dist/validate.js",
 		"src/assets/js/core/form-app.module.js"
 	]
 };
