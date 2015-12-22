@@ -7,8 +7,12 @@
 		<div>Dashboard</div>
 		</div>
 		<span flex></span>
-		<div class="nav-tools" layout="row">			
-			<md-button>Button</md-button>
+		<div class="nav-tools" layout="row">
+            {% if (user) %}
+                <md-button href="/logout">Logout</md-button>
+            {% else %}
+                <md-button href="/login">Login</md-button>
+            {% endif %}			
 			<md-button class="" aria-label="Account">
 				<md-icon md-svg-icon="{{nav.svgIcons.account}}"></md-icon>
 			</md-button>

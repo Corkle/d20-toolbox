@@ -1,5 +1,5 @@
 var User = require('mongoose').model('User'),
-	config = require('../../config/config.js'),
+	assets = require('../../config/asset-paths.js'),
 	passport = require('passport');
 	
 var getErrorMessage = function(err) {
@@ -28,8 +28,8 @@ exports.renderLogin = function(req, res, next) {
 		res.render('login', {
 			title: 'Login',
 			messages: req.flash('error') || req.flash('info'),
-			cssFiles: config.assets.css,
-			libFiles: config.assets.libs
+			cssFiles: assets.css,
+			libFiles: assets.libs
 		});
 	}
 	else {
@@ -42,8 +42,8 @@ exports.renderRegister = function(req, res, next) {
 		res.render('register', {
 			title: 'Register',
 			messages: req.flash('error'),
-			cssFiles: config.assets.css,
-			libFiles: config.assets.libs
+			cssFiles: assets.css,
+			libFiles: assets.libs
 		});
 	}
 	else {
@@ -78,6 +78,38 @@ exports.register = function(req, res, next) {
 exports.logout = function(req, res) {
 	req.logout();
 	res.redirect('/');
+};
+
+exports.saveOAuthUserProfile = function(req, profile, done) {
+    User.findOne({
+        provider: profile.provider,
+        providerId: profile.providerId
+    }, function(err, user) {
+        if (err) {
+            return done(err);
+        } else {
+            if (!user) {
+                var possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0] : '');
+                User.findUniqueUsername(possibleUsername, null, function(availableUsername) {
+                    profile.username = availableUsername;
+                    user = new User(profile);
+                    
+                    user.save(function(err) {
+                        if (err) {
+                            var message = getErrorMessage(err);
+                            req.flash('error', message);
+
+                            return req.res.redirect('/login');
+                        }
+                        
+                        return done(err, user);
+                    });
+                });
+            } else {
+                return done(err, user);
+            }
+        }
+    });
 };
 
 exports.create = function(req, res, next) {

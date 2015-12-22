@@ -73,7 +73,7 @@
 // 	});
 // }
 
-var config = require('../../config/config.js');
+var assets = require('../../config/asset-paths.js');
 // var assetFiles = {
 // 	js: config.assets.js,
 // 	css: config.assets.css,
@@ -85,9 +85,9 @@ exports.render = function (req, res) {
 		res.render('index', {
 			title: 'Dashboard',
 			sidenavFolded: true,
-			jsFiles: config.assets.js,
-			cssFiles: config.assets.css,
-			libFiles: config.assets.libs,
+			jsFiles: assets.js,
+			cssFiles: assets.css,
+			libFiles: assets.libs,
 			user: req.user ? req.user.username : ''
 		});
 	// });
@@ -97,9 +97,9 @@ exports.renderError = function (req, res) {
 	res.render('error', {
 		title: 'Error - D20 Toolbox',
 		sidenavFolded: false,
-		jsFiles: config.assets.js,
-		cssFiles: config.assets.css,
-		libFiles: config.assets.libs,
+		jsFiles: assets.js,
+		cssFiles: assets.css,
+		libFiles: assets.libs,
 		error: req.error
 	});
 };

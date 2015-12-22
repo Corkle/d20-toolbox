@@ -25,5 +25,10 @@ var assets = {
 module.exports = {
 	port: port,
 	assets: assets,
-	db: mongoDB
+	db: mongoDB,
+    facebook: {
+        clientID: '',
+        clientSecret: '',
+        callbackURL: 'http://localhost:' + port + '/oauth/facebook/callback'
+    }
 }

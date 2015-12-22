@@ -1,164 +1,176 @@
-{% extends 'base-nav.html' %} {% block content %}  
+{% extends 'base-nav.html' %} {% block content %}
 
-    <div class="cards" layout="row" layout-sm="column" layout-wrap layout-align="space-around center">
+<div class="cards" layout="row" layout-sm="column" layout-wrap layout-align="space-around center">
 
-      <md-card flex-gt-sm="50">
+    <md-card>
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            {% if (user) %}
+                <h3>Hello <%=user%></h3>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            {% endif %}
         </md-card-content>
-      </md-card>
+    </md-card>
 
-      <md-card flex-gt-sm="30">
+    <md-card flex-gt-sm="50">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
-
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
+    </md-card>
 
-      <md-card flex-gt-sm="40">
+    <md-card flex-gt-sm="30">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
+
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
-      
-      <md-card flex-gt-sm="60">
+    </md-card>
+
+    <md-card flex-gt-sm="40">
         <md-card-content>
-          <span class="md-headline">60% In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
-
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
-      
-      <md-card flex-gt-sm="30">
+    </md-card>
+
+    <md-card flex-gt-sm="60">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
+            <span class="md-headline">60% In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
 
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
+    </md-card>
 
-      <md-card flex-gt-sm="30">
+    <md-card flex-gt-sm="30">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
 
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
-      
-            <md-card flex-gt-sm="50">
+    </md-card>
+
+    <md-card flex-gt-sm="30">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
-        </md-card-content>
-      </md-card>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
 
-<md-card flex-gt-sm="30">
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+        </md-card-content>
+    </md-card>
+
+    <md-card flex-gt-sm="50">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
-
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-icon md-svg-src="src/assets/img/icons/d20.svg" layout-margin class="s48"></md-icon>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
-      
-      <md-card flex-gt-sm="30">
+    </md-card>
+
+    <md-card flex-gt-sm="30">
         <md-card-content>
-          <span class="md-headline">In-card mixed actions</span>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-              <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
-              </md-button>
-            </md-card-icon-actions>
-          </md-card-actions>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
 
-          <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-            Greene's musical language: feel it. It's a simple request, as well...
-          </p>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
         </md-card-content>
-      </md-card>
+    </md-card>
 
-{% endblock %}
+    <md-card flex-gt-sm="30">
+        <md-card-content>
+            <span class="md-headline">In-card mixed actions</span>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="src/assets/img/icons/d20.svg"></md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
+
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+        </md-card-content>
+    </md-card>
+
+    {% endblock %}
